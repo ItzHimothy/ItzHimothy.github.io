@@ -50,15 +50,12 @@
 </head>
 <body>
 
-<!-- 🎯 HEADER -->
 <h1>📘 عاطف والعصافير</h1>
 <h3>إشراف المعلمة: مها بسام</h3>
 <h4>الصف الرابع – منهاج الإمارات</h4>
 
-<!-- ✅ MAIN CARD -->
 <div id="card">
 
-<!-- ✅ START PAGE -->
 <div id="storyPage">
 <p>اسم الطالب:</p>
 <input id="studentName" placeholder="اكتب اسمك هنا">
@@ -66,27 +63,22 @@
 <button onclick="startQuiz()">ابدأ الاختبار</button>
 </div>
 
-<!-- ✅ QUIZ PAGE -->
 <div id="quizPage" style="display:none;">
-    
-    <!-- ✅ Mulakhas stays visible -->
-    <div id="mulakhas">
-        <b>ملخص القصة:</b><br>
-        عاطف طفل محب للخير ويساعد جده في أعمال الزراعة.<br>
-        وفي الطريق إلى الحقل رأى عصفورًا صغيرًا مُصابًا فتأثر بحاله.<br>
-        حمل عاطف العصفور برفق وقرر أن يعتني به حتى يشفى.<br>
-        أخذه إلى المستشفى البيطري ليحصل على العلاج اللازم.<br>
-        تابع عاطف العناية بالعصفور في البيت حتى استعاد قوته.<br>
-        وفي النهاية شعر عاطف بالفرح لأنه أنقذ حياة كائن ضعيف.
-    </div>
-
-    <p id="progress"></p>
-    <p id="question"></p>
-    <div id="answers"></div>
-
+<div id="mulakhas">
+<b>ملخص القصة:</b><br>
+عاطف طفل محب للخير ويساعد جده في أعمال الزراعة.<br>
+وفي الطريق إلى الحقل رأى عصفورًا صغيرًا مُصابًا فتأثر بحاله.<br>
+حمل عاطف العصفور برفق وقرر أن يعتني به حتى يشفى.<br>
+أخذه إلى المستشفى البيطري ليحصل على العلاج اللازم.<br>
+تابع عاطف العناية بالعصفور في البيت حتى استعاد قوته.<br>
+وفي النهاية شعر عاطف بالفرح لأنه أنقذ حياة كائن ضعيف.
 </div>
 
-<!-- ✅ END PAGE -->
+<p id="progress"></p>
+<p id="question"></p>
+<div id="answers"></div>
+</div>
+
 <div id="endPage" style="display:none;">
     <h2>🎉 أحسنت يا بطل!</h2>
     <p id="finalScore"></p>
@@ -95,16 +87,13 @@
 
 </div>
 
-<!-- ✅ JS SCRIPT -->
 <script>
 let score = 0;
 let current = 0;
 
-// ✅ Load sounds
 let correctSound = new Audio("correct.mp3");
 let wrongSound = new Audio("wrong.mp3");
 
-// ✅ Shuffle Function
 function shuffle(arr){
     for(let i = arr.length - 1; i > 0; i--){
         const j = Math.floor(Math.random() * (i + 1));
@@ -113,7 +102,6 @@ function shuffle(arr){
     return arr;
 }
 
-// ✅ Questions Data
 const questions = [
 ["إلى أين ذهب عاطف مع جدّه؟",[
     "إلى المدرسة","إلى السوق","إلى الحديقة","إلى الحقل ✅"
@@ -192,7 +180,6 @@ const questions = [
 ]]
 ];
 
-// ✅ START QUIZ
 function startQuiz(){
     document.getElementById("storyPage").style.display = "none";
     document.getElementById("quizPage").style.display = "block";
@@ -200,14 +187,11 @@ function startQuiz(){
     loadQuestion();
 }
 
-// ✅ LOAD QUESTION
 function loadQuestion(){
     document.getElementById("progress").innerText = `السؤال ${current+1} / 25`;
     document.getElementById("question").innerText = questions[current][0];
-
     const ansArea = document.getElementById("answers");
     ansArea.innerHTML = "";
-
     shuffle([...questions[current][1]]).forEach(ans => {
         const btn = document.createElement("div");
         btn.className = "choice";
@@ -217,7 +201,6 @@ function loadQuestion(){
     });
 }
 
-// ✅ CHECK ANSWER
 function checkAnswer(correct){
     if(correct){
         correctSound.play();
@@ -225,19 +208,17 @@ function checkAnswer(correct){
         current++;
         if(current < 25) loadQuestion();
         else endQuiz();
-    }
-    else {
+    } else {
         wrongSound.play();
         alert("❌ خطأ! حاول مرة أخرى");
     }
 }
 
-// ✅ END QUIZ
 function endQuiz(){
     document.getElementById("quizPage").style.display = "none";
     document.getElementById("endPage").style.display = "block";
     document.getElementById("finalScore").innerHTML =
-        `${document.getElementById("studentName").value} نتيجتك: ${score} / 25`;
+    `${document.getElementById("studentName").value} نتيجتك: ${score} / 25`;
 }
 </script>
 
