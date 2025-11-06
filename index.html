@@ -1,166 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Lamine Yamal — The Present & Future GOAT</title>
-<link rel="icon" href="data:image/svg+xml,
-  %3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E
-  %3Ccircle cx='32' cy='32' r='32' fill='%230046A8'/%3E
-  %3Cpath d='M20 44l8-24 8 24 6-12 6 12' stroke='%23FFD700' stroke-width='5' fill='none'/%3E
-  %3C/svg%3E" />
+<meta charset="UTF-8">
+<title>🐐 Lamine Yamal — The Present & Future GOAT</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <style>
-  :root{
-    --barca-blue:#0046A8;
-    --barca-maroon:#A50044;
-    --gold:#FFD700;
-    --card: rgba(255,255,255,0.1);
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap');
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    background: linear-gradient(120deg, #0046A8, #A50044, #ffcc00);
+    background-size: 400% 400%;
+    animation: bgMove 12s infinite alternate;
   }
-  *{box-sizing:border-box}
-  body{
-    margin:0; font-family:system-ui, Arial, sans-serif; color:#fff;
-    background: radial-gradient(1200px 600px at 20% -10%, var(--barca-blue), transparent),
-                radial-gradient(1200px 600px at 120% 110%, var(--barca-maroon), transparent),
-                linear-gradient(135deg, #0a0f1e, #17112a);
+  @keyframes bgMove {
+    from { background-position: left; }
+    to { background-position: right; }
   }
-  header{
-    text-align:center; padding:24px 12px; position:sticky; top:0; z-index:10;
-    background:linear-gradient(0deg, rgba(0,0,0,.35), rgba(0,0,0,.35));
-    border-bottom:1px solid #ffffff22;
+  header {
+    text-align: center;
+    padding: 25px;
+    background: rgba(0,0,0,0.4);
+    font-size: 35px;
+    font-weight: 900;
+    border-bottom: 3px solid #ffcc00;
   }
-  header h1{margin:0; font-size:clamp(26px,4vw,44px); letter-spacing:.5px}
-  header p{margin:6px 0 0; opacity:.9}
-  .wrap{max-width:1100px; margin:28px auto; padding:0 16px}
-  .hero{
-    display:grid; gap:20px; align-items:center;
-    grid-template-columns: 320px 1fr;
+  .container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
   }
-  .portrait{
-    width:100%; aspect-ratio:1/1.2; border-radius:18px;
-    border:4px solid var(--gold); background:#111;
-    object-fit:cover; box-shadow:0 8px 24px #0008;
+  .main-img {
+    width: 300px;
+    border-radius: 18px;
+    border: 5px solid #ffcc00;
+    box-shadow: 0 0 25px #000;
+    margin-bottom: 20px;
   }
-  /* graceful fallback if yamal.jpg missing */
-  .portrait[src=""], .portrait:not([src]){
-    background: repeating-linear-gradient(45deg,#1b1b1b,#1b1b1b 12px,#222 12px,#222 24px);
+  h2 {
+    color: #ffcc00;
+    font-size: 28px;
+    margin-top: 30px;
   }
-  .badge{
-    display:inline-block; margin:.2rem .25rem 0 0; padding:.35rem .6rem; border-radius:999px;
-    background:#ffffff18; border:1px solid #ffffff33; font-weight:700; font-size:.9rem;
+  .card {
+    background: rgba(0,0,0,0.35);
+    margin: 10px auto;
+    padding: 12px;
+    border-radius: 15px;
+    font-size: 19px;
+    border: 2px solid #ffcc00;
+    width: 80%;
   }
-  .cards{display:grid; gap:16px; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); margin-top:18px}
-  .card{
-    background:var(--card); border:1px solid #ffffff22; border-radius:16px; padding:14px 16px;
-    box-shadow:0 6px 18px #0006; transition:transform .18s ease;
+  .slider {
+    display: flex;
+    overflow-x: auto;
+    gap: 15px;
+    padding: 15px;
   }
-  .card:hover{ transform: translateY(-4px); }
-  h2{font-size:clamp(22px,2.6vw,30px); color:var(--gold); margin:26px 0 8px}
-  ul{margin:0; padding-left:1.1rem; line-height:1.55}
-  .grid-2{display:grid; gap:16px; grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
-  .fact{display:flex; gap:10px; align-items:flex-start}
-  .dot{width:10px; height:10px; border-radius:50%; background:var(--gold); margin-top:.55rem}
-  footer{opacity:.8; text-align:center; padding:36px 12px; border-top:1px solid #ffffff22; margin-top:28px}
-  .note{font-size:.92rem; opacity:.9}
-  @media (max-width:760px){ .hero{grid-template-columns: 1fr} }
+  .slider img {
+    height: 230px;
+    border-radius: 12px;
+    border: 3px solid #fff;
+    transition: .25s ease;
+  }
+  .slider img:hover {
+    transform: scale(1.08);
+    border-color: #ffcc00;
+  }
+  footer {
+    margin-top: 40px;
+    padding: 18px;
+    background: rgba(0,0,0,0.4);
+    font-size: 18px;
+    border-top: 3px solid #ffcc00;
+  }
 </style>
 </head>
+
 <body>
 
-<header>
-  <h1>🐐 Lamine Yamal — The Present & Future GOAT</h1>
-  <p>Barça & Spain • No.10 • EURO 2024 champion • 2× Kopa Trophy</p>
-</header>
+<header>🐐 Lamine Yamal — The Present & Future GOAT 🐐</header>
 
-<main class="wrap">
+<div class="container">
 
-  <!-- HERO -->
-  <section class="hero">
-    <!-- Use a LOCAL file so it always works: upload yamal.jpg -->
-    <img class="portrait" src="yamal.jpg" alt="Lamine Yamal" />
-    <div>
-      <span class="badge">FC Barcelona — #10</span>
-      <span class="badge">Spain NT — EURO 2024 winner</span>
-      <span class="badge">Kopa Trophy 2024 & 2025</span>
-      <h2>Snapshot</h2>
-      <div class="cards">
-        <div class="card"><b>Full name:</b><br/>Lamine Yamal Nasraoui Ebana</div>
-        <div class="card"><b>Born:</b><br/>13 July 2007</div>
-        <div class="card"><b>Position:</b><br/>Right Winger</div>
-        <div class="card"><b>Club number:</b><br/>10 (Barcelona)</div>
-      </div>
-    </div>
-  </section>
+  <!-- MAIN IMAGE -->
+  <img class="main-img" src="https://i.ibb.co/XCCVbzS/yamal-main.jpg">
 
-  <!-- WHY HE'S HIM -->
-  <section>
-    <h2>Why He’s HIM (2024–2025)</h2>
-    <div class="grid-2">
-      <div class="card">
-        <ul>
-          <li>Youngest **EURO** goalscorer; key to **Spain winning Euro 2024**.</li>
-          <li>Promoted to **Barcelona’s iconic No.10** shirt for 2025–26.</li>
-          <li>Back-to-back **Kopa Trophy** winner (2024, 2025) — first ever to retain it.</li>
-          <li>Elite 1v1 dribbler, chance creator, and clutch scorer at senior level.</li>
-        </ul>
-      </div>
-      <div class="card">
-        <ul>
-          <li>La Masia product with football IQ beyond his age.</li>
-          <li>Starter for club & country before turning 18.</li>
-          <li>Headline performances in LaLiga, UCL & EURO knockout games.</li>
-          <li>Already the face of Barça’s new era.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
+  <!-- WHO HE IS -->
+  <h2>🔥 Who Is He?</h2>
+  <div class="card">
+    Lamine Yamal is not the future GOAT — he is the present AND the future.
+    Spain’s champion. Barcelona’s Magician.  
+    The youngest player dominating world football. 🐐💙❤️🇪🇸
+  </div>
 
-  <!-- RECORDS -->
-  <section>
-    <h2>Major Records & Honours</h2>
-    <div class="grid-2">
-      <div class="card">
-        <div class="fact"><span class="dot"></span><div>Youngest player to appear & score at a UEFA European Championship.</div></div>
-        <div class="fact"><span class="dot"></span><div>EURO 2024 **Young Player of the Tournament** & **Team of the Tournament**.</div></div>
-        <div class="fact"><span class="dot"></span><div>EURO 2024 **Top Assist Provider**.</div></div>
-      </div>
-      <div class="card">
-        <div class="fact"><span class="dot"></span><div>La Liga titles (incl. 2024–25), Copa del Rey 2024–25, Supercopa 2025.</div></div>
-        <div class="fact"><span class="dot"></span><div>**Kopa Trophy** winner 2024 & 2025 (first to win it twice in a row).</div></div>
-        <div class="fact"><span class="dot"></span><div>Barcelona **No.10** from 2025–26 — the Messi/Ronaldinho lineage.</div></div>
-      </div>
-    </div>
-  </section>
+  <!-- STATS -->
+  <h2>⚽ Stats</h2>
+  <div class="card"><b>Club:</b> FC Barcelona</div>
+  <div class="card"><b>Country:</b> Spain</div>
+  <div class="card"><b>Position:</b> Right Winger (RW)</div>
+  <div class="card"><b>Number:</b> 10 — Barcelona King 👑</div>
+  <div class="card"><b>Born:</b> July 13, 2007</div>
 
-  <!-- BIO -->
-  <section>
-    <h2>Quick Bio</h2>
-    <div class="card">
-      Lamine Yamal was born in Catalonia to a Moroccan father and Equatorial Guinean mother.
-      A La Masia phenom, he debuted for Barça’s first team at 15. By 16–17 he was already a
-      starter for Spain, breaking EURO records and lifting the trophy in 2024. In 2025 he
-      inherited Barça’s No.10 and won his second straight Kopa Trophy — the ultimate sign
-      that he’s not just the future, he’s the **present**.
-    </div>
-  </section>
+  <!-- WHY HE’S HIM -->
+  <h2>💥 Why He’s HIM</h2>
+  <div class="card">
+    ⚡ Youngest EURO goalscorer in history  
+    🏆 EURO 2024 Champion — Man of the Match  
+    🥇 2× Kopa Trophy Winner (2024 + 2025)  
+    🐐 Wearing the legendary Barcelona #10  
+    😤 Already destroying top defenders  
+  </div>
 
-  <!-- FACTS -->
-  <section>
-    <h2>Fun Facts</h2>
-    <div class="cards">
-      <div class="card">Left-footed winger with outrageous close control.</div>
-      <div class="card">Often starts on the right, cuts inside to create or curl top-bins.</div>
-      <div class="card">Loves big-game moments — semifinals and finals bring out his best.</div>
-      <div class="card">Celebrates with swagger; confidence beyond his years.</div>
-    </div>
-  </section>
+  <!-- GALLERY -->
+  <h2>📸 GOAT Gallery</h2>
+  <div class="slider">
+    <img src="https://i.ibb.co/xhmpPkq/yamal1.jpg">
+    <img src="https://i.ibb.co/9yWqqJc/yamal2.jpg">
+    <img src="https://i.ibb.co/7KxT1KQ/yamal3.jpg">
+    <img src="https://i.ibb.co/4fV40Jk/yamal4.jpg">
+    <img src="https://i.ibb.co/vhZznqM/yamal5.jpg">
+  </div>
 
-  <footer>
-    <div class="note">
-      Tip: to guarantee the image loads everywhere, upload a photo named <b>yamal.jpg</b> next to this file.
-      You can change the file name in the &lt;img&gt; tag if you prefer.
-    </div>
-  </footer>
+</div>
 
-</main>
+<footer>VISCA BARÇA 🔥🐐💙❤️ — Lamine Yamal Era</footer>
+
 </body>
 </html>
