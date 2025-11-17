@@ -1,527 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lamine Yamal — Trilingual Fan Site</title>
-  <link rel="icon" href="https://www.icons.com/media/catalog/category/FC_Barcelona_1_2.png" />
-  <style>
-    :root{
-      --barca-blue:#0033a0;/* Barça blue */
-      --barca-red:#a50044; /* Barça red */
-      --barca-purple:#800080; /* accent purple */
-      --gold:#ffd700;
-      --glass: rgba(255,255,255,0.10);
-      --glass-strong: rgba(255,255,255,0.16);
-      --ink:#0b0b0b;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body {
-      font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-      background: linear-gradient(270deg, var(--barca-blue), var(--barca-red), var(--barca-purple));
-      background-size: 600% 600%;
-      animation: barcaColors 12s ease infinite;
-      color: #fff; margin: 0; padding: 0; min-height: 100svh;
-    }
-    @keyframes barcaColors { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Arsenal FC – The Pride of North London</title>
 
-    header { position: sticky; top:0; z-index: 50; backdrop-filter: blur(8px); background: linear-gradient(90deg, rgba(0,0,0,0.7), rgba(0,0,0,0.35)); padding: 14px 18px; border-bottom: 1px solid rgba(255,255,255,0.12); }
-    .brand{display:flex; align-items:center; gap:14px; justify-content:space-between; flex-wrap:wrap; width:min(1260px, 95%); margin:0 auto}
-    .brand h1 { font-size: clamp(28px, 3.2vw, 48px); margin: 0; letter-spacing: .5px; }
-    .brand p {margin:0; opacity:.9; font-weight:500}
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #fafafa;
+    color: #111;
+  }
 
-    .lang-buttons { display:flex; gap:8px; flex-wrap:wrap }
-    .lang-buttons button { background-color: var(--gold); color: #111; border: none; padding: 10px 14px; border-radius: 12px; cursor: pointer; font-weight: 700; transition: transform .15s ease, background .15s ease; }
-    .lang-buttons button:hover { background:#fff; color: var(--barca-red); transform: translateY(-1px)}
-    .lang-buttons button.active-btn{ outline:2px solid #fff; box-shadow:0 0 0 3px rgba(255,255,255,.15)}
+  /* NAVBAR */
+  nav {
+    background: #c8102e; /* Arsenal red */
+    padding: 15px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    position: sticky;
+    top: 0;
+  }
+  nav h1 { margin: 0; font-size: 24px; }
+  nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 15px;
+    font-weight: bold;
+  }
 
-    .container { width:min(1260px, 95%); margin: 26px auto 90px; }
+  /* HERO SECTION */
+  .hero {
+    background: url('https://i.ibb.co/dfKd3SW/arsenal-banner.jpg') center/cover no-repeat;
+    height: 45vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-shadow: 0 0 10px black;
+  }
+  .hero h2 {
+    color: white;
+    font-size: 40px;
+    text-align: center;
+  }
 
-    .hero{ display:grid; grid-template-columns: 1.2fr .8fr; gap:24px; align-items:center }
-    .player-img{ width: 100%; max-width: 560px; border-radius: 22px; box-shadow: 0 10px 28px rgba(0,0,0,.55); margin-inline:auto; display:block; }
-    .hero-quote{ background: var(--glass); border:1px solid rgba(255,255,255,.14); border-radius:18px; padding:22px 22px 26px; }
-    .hero-quote h2{ margin:0 0 10px; color: var(--gold); border:none; font-size:clamp(22px,2.2vw,30px)}
-    .hero-quote p{ margin:0 0 10px; line-height:1.7 }
-    .cta-row{ display:flex; gap:10px; flex-wrap:wrap; margin-top:12px }
-    .btn{ display:inline-flex; align-items:center; gap:8px; background:#fff; color:#111; padding:10px 14px; border-radius:12px; font-weight:700; text-decoration:none }
+  /* SECTIONS */
+  section {
+    padding: 40px 20px;
+    max-width: 900px;
+    margin: auto;
+  }
+  h2 { color: #c8102e; }
 
-    .section { background: var(--glass); border: 1px solid rgba(255,255,255,0.14); border-radius: 18px; margin: 20px auto; padding: 20px 22px; text-align: left; box-shadow: 0 6px 18px rgba(0,0,0,.25); }
-    h2 { color: var(--gold); border-bottom: 2px solid var(--gold); padding-bottom: 10px; margin-top: 0; }
-    h3 { margin: 10px 0 8px; color:#fff }
-    p{line-height:1.8}
-    ul{padding-left: 18px}
-    li{margin:8px 0; line-height:1.7}
+  /* PLAYER CARDS */
+  .players {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 20px;
+  }
+  .card {
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,.1);
+  }
+  .card img {
+    width: 100%;
+    border-radius: 10px;
+  }
 
-    .grid-2{ display:grid; grid-template-columns: 1fr 1fr; gap:18px }
-    .grid-3{ display:grid; grid-template-columns: repeat(3,1fr); gap:18px }
-
-    .lang-section { display: none; opacity:0; transform: translateY(6px); transition: opacity .35s ease, transform .35s ease; }
-    .lang-section.active { display:block; opacity:1; transform: translateY(0) }
-
-    [dir="rtl"] { direction: rtl; text-align: right; font-family: "Amiri", "Cairo", Tahoma, Arial, sans-serif; }
-
-    .voices{ display:grid; grid-template-columns: repeat(2, 1fr); gap:16px }
-    .quote-card{ background: rgba(0,0,0,.35); border:1px solid rgba(255,255,255,.16); border-radius:16px; padding:16px; display:grid; grid-template-columns: 76px 1fr; gap:14px; align-items:center }
-    .quote-card img{ width:76px; height:76px; object-fit:cover; border-radius:50%; border:2px solid var(--gold); box-shadow:0 0 0 3px rgba(255,255,255,.12) }
-    .quote-card .who{ font-weight:700; margin:0 }
-    .quote-card .role{ margin:2px 0 6px; opacity:.9; font-size:.95em }
-    .quote-card blockquote{ margin:0; line-height:1.6 }
-    .chip{ display:inline-block; background:rgba(255,255,255,.15); border:1px solid rgba(255,255,255,.25); padding:4px 8px; border-radius:999px; font-size:.85em; margin-bottom:12px }
-
-    .carousel{ overflow:auto; display:flex; gap:12px; scroll-snap-type:x mandatory; padding-bottom:6px }
-    .carousel .card{ min-width: 280px; scroll-snap-align:start; background: rgba(0,0,0,.35); border:1px solid rgba(255,255,255,.16); border-radius:16px; padding:14px }
-    .thumb{ width:100%; aspect-ratio:16/9; border-radius:12px; object-fit:cover; border:1px solid rgba(255,255,255,.18) }
-
-    .table{ width:100%; border-collapse:collapse; margin-top:8px }
-    .table th,.table td{ border-bottom:1px dashed rgba(255,255,255,.25); padding:10px 8px; text-align:left }
-
-    footer{ margin: 46px auto 28px; width:min(1260px,95%); text-align:center; color:#f5f5f5; opacity:.95; }
-    footer .credits{ background: var(--glass-strong); border:1px solid rgba(255,255,255,.16); border-radius:14px; padding:14px 16px; }
-
-    /* Responsive */
-    @media (max-width: 1080px){ .voices{ grid-template-columns:1fr } }
-    @media (max-width: 920px){ .hero{ grid-template-columns:1fr; } }
-    @media (max-width: 520px){ .grid-2{grid-template-columns:1fr} .grid-3{grid-template-columns:1fr} .player-img{max-width: 100%} }
-  </style>
+  footer {
+    background: #111;
+    padding: 20px;
+    color: white;
+    text-align: center;
+    margin-top: 40px;
+  }
+</style>
 </head>
+
 <body>
-  <header>
-    <div class="brand">
-      <div>
-        <h1>Lamine Yamal</h1>
-        <p>FC Barcelona’s Young Sensation</p>
-      </div>
-      <div class="lang-buttons">
-        <button id="btn-en" class="active-btn" onclick="switchLang('en')">🇬🇧 English</button>
-        <button id="btn-es" onclick="switchLang('es')">🇪🇸 Español</button>
-        <button id="btn-ar" onclick="switchLang('ar')">🇸🇦 العربية</button>
-      </div>
-    </div>
-  </header>
 
-  <div class="container">
-    <section class="hero">
-      <img class="player-img" src="https://tse4.mm.bing.net/th/id/OIF.Czli7vTlBEva6pnNiqqd2Q?cb=ucfimg2ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Lamine Yamal">
-      <div class="hero-quote">
-        <h2 id="quote-title">“A fearless winger for a fearless club.”</h2>
-        <p id="quote-text">From La Masia playgrounds to the Camp Nou spotlight, Lamine Yamal’s journey is the story of talent meeting courage.</p>
-        <div class="cta-row">
-          <a class="btn" href="https://www.thehighlightsapp.com/blog/lamine-yamal-biography-childhood-career-and-achievements" target="_blank">🔎 Learn more</a>
-          <a class="btn" href="#gallery">🖼️ Media gallery</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= English ================= -->
-    <div class="lang-section active" id="lang-en">
-      <div class="section">
-        <h2>About Lamine Yamal</h2>
-        <p>Lamine Yamal Nasraoui Ebana (born July 13, 2007) is a Spanish professional footballer who plays as a right winger for FC Barcelona and the Spanish national team. Renowned for his explosive acceleration, sharp dribbling, disguised passes and creative decision‑making, he’s widely viewed as one of the most promising players of his generation.</p>
-        <div class="grid-3">
-          <div>
-            <h3>Identity</h3>
-            <ul>
-              <li>Barcelona‑raised with Moroccan & Equatoguinean roots.</li>
-              <li>Joined La Masia at seven; fast‑tracked through age groups.</li>
-              <li>Calm personality; competitive mindset.</li>
-            </ul>
-          </div>
-          <div>
-            <h3>Role & Profile</h3>
-            <ul>
-              <li>Left‑footed right winger.</li>
-              <li>Elite first touch, body feints, and rapid pace changes.</li>
-              <li>Creates and finishes — not just a dribbler.</li>
-            </ul>
-          </div>
-          <div>
-            <h3>Barça DNA</h3>
-            <ul>
-              <li>Positional play fundamentals (width, overloads, third‑man).</li>
-              <li>Pressing triggers & counter‑press habits from La Masia.</li>
-              <li>Humility and joy on the ball.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="section grid-2">
-        <div>
-          <h2>Playing Style — Tactical Lens</h2>
-          <ul>
-            <li>Isolation specialist on the right flank; drags full‑backs wide, then attacks inside with a left‑foot curl or a cut‑back.</li>
-            <li>Threat on early crosses to the penalty spot for trailing runners (e.g., #9 or weak‑side #8).</li>
-            <li>Comfortable receiving to feet or running in behind versus a high line.</li>
-            <li>Decision‑making: weighs cut‑in shot vs. overlap release vs. switch of play.</li>
-          </ul>
-        </div>
-        <div>
-          <h2>Career Timeline</h2>
-          <ul>
-            <li><strong>2014–2022:</strong> La Masia youth ranks, rapid progression through age groups.</li>
-            <li><strong>2023:</strong> Senior debut for FC Barcelona at 15, among La Liga’s youngest debutants.</li>
-            <li><strong>2024:</strong> Breakthrough minutes; Spain call‑up and EURO appearance as a teenager.</li>
-            <li><strong>2025:</strong> First‑team regular; recognition across Europe.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="section grid-2">
-        <div>
-          <h2>Awards & Records</h2>
-          <ul>
-            <li>Youngest player to score for Spain’s senior national team.</li>
-            <li>Youngest participant to feature in a UEFA European Championship match.</li>
-            <li>Among Barça’s youngest Champions League starters.</li>
-            <li>Recipient of major youth accolades and Golden‑Boy style honors.</li>
-          </ul>
-          <h3>Season Splits (Sample)</h3>
-          <table class="table">
-            <thead><tr><th>Season</th><th>Apps</th><th>Goals</th><th>Assists</th></tr></thead>
-            <tbody>
-              <tr><td>2023/24</td><td>—</td><td>—</td><td>—</td></tr>
-              <tr><td>2024/25</td><td>—</td><td>—</td><td>—</td></tr>
-            </tbody>
-          </table>
-          <p style="opacity:.85">(Fill with your preferred stats source.)</p>
-        </div>
-        <div>
-          <h2>Fun Facts & Off the Pitch</h2>
-          <ul>
-            <li>Still closely connected with La Masia staff and youth teammates.</li>
-            <li>Enjoys video games and recovery sessions with teammates after training.</li>
-            <li>Known for greeting academy staff by name — humility first.</li>
-            <li>Match‑eve routine: simple meals and visualization.</li>
-          </ul>
-          <h3>Learn More</h3>
-          <ul>
-            <li><a style="color:#fff" target="_blank" href="https://www.thehighlightsapp.com/blog/lamine-yamal-biography-childhood-career-and-achievements">Highlights App: Lamine Yamal Biography</a></li>
-            <li><a style="color:#fff" target="_blank" href="https://www.fcbarcelona.com">FC Barcelona Official</a></li>
-            <li><a style="color:#fff" target="_blank" href="https://www.uefa.com">UEFA</a></li>
-            <li><a style="color:#fff" target="_blank" href="https://www.laliga.com">LaLiga</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="section" id="quotes-en">
-        <h2>Voices About Lamine Yamal</h2>
-        <div class="chip">Legends & Coaches</div>
-        <div class="voices">
-          <div class="quote-card">
-            <img src="https://th.bing.com/th/id/OIP.7Bz-T8SDB7bU4SKLv6gVmAHaEr?w=297&h=187&c=7&r=0&o=7&cb=ucfimg2&pid=1.7&rm=3&ucfimg=1" alt="Xavi">
-            <div><p class="who">Xavi Hernández</p><p class="role">Former FC Barcelona coach</p><blockquote>“He shined in his first starts — he reads the game like a veteran.”</blockquote></div>
-          </div>
-          <div class="quote-card">
-            <img src="https://th.bing.com/th/id/OIP.JQROOW-bMQvPITgIblZyZgHaEr?w=273&h=180&c=7&r=0&o=7&cb=ucfimg2&pid=1.7&rm=3&ucfimg=1" alt="Hansi Flick">
-            <div><p class="who">Hansi Flick</p><p class="role">FC Barcelona coach</p><blockquote>“His talent is unique — with that quality, he must work harder than anyone.”</blockquote></div>
-          </div>
-          <div class="quote-card">
-            <img src="https://th.bing.com/th/id/OIP.KirdgSd77m3uObqnmNpofAAAAA?w=328&h=184&c=7&r=0&o=7&cb=ucfimg2&pid=1.7&rm=3&ucfimg=1" alt="Luis de la Fuente">
-            <div><p class="who">Luis de la Fuente</p><p class="role">Spain head coach</p><blockquote>“He must improve every day — over time he will be a wonderful footballer.”</blockquote></div>
-          </div>
-          <div class="quote-card">
-            <img src="https://th.bing.com/th/id/OIP.btaxbijSR-SOmFrVmoH0igHaE8?w=296&h=198&c=7&r=0&o=7&cb=ucfimg2&pid=1.7&rm=3&ucfimg=1" alt="Simone Inzaghi">
-            <div><p class="who">Simone Inzaghi</p><p class="role">Inter manager</p><blockquote>“A player who comes around every 50 years.”</blockquote></div>
-          </div>
-          <div class="quote-card">
-            <img src="https://th.bing.com/th/id/OIP.mjk2GHYtrZPnpudusp-I0gHaKB?w=136&h=184&c=7&r=0&o=7&cb=ucfimg2&pid=1.7&rm=3&ucfimg=1" alt="Ronaldinho">
-            <div><p class="who">Ronaldinho</p><p class="role">Barça legend</p><blockquote>“Now it’s Lamine Yamal’s turn.”</blockquote></div>
-          </div>
-          <div class="quote-card">
-            <img src="https://th.bing.com/th/id/OSK.HEROP9NWDr4kOUyxlIgMQCvS_nvuF8cKBUJS3_gziziJkvg?w=472&h=280&c=13&rs=2&o=6&oif=webp&cb=ucfimg1&pid=SANGAM&ucfimg=1" alt="Zinedine Zidane">
-            <div><p class="who">Zinedine Zidane</p><p class="role">France & Real Madrid legend</p><blockquote>“Watching him is special — I’ve rarely seen anything like it.”</blockquote></div>
-          </div>
-          <div class="quote-card">
-            <img src="https://th.bing.com/th/id/OIP.qdEonaH6K7cMOi16y5biqQHaEo?w=306&h=191&c=7&r=0&o=7&cb=ucfimg2&pid=1.7&rm=3&ucfimg=1" alt="Raúl González">
-            <div><p class="who">Raúl González</p><p class="role">Real Madrid legend</p><blockquote>“Maturity and match‑deciding quality at such a young age.”</blockquote></div>
-          </div>
-          <div class="quote-card">
-            <img src="https://th.bing.com/th/id/OIP.RqMJje0PAryvlmV4kbA4rgHaDt?w=350&h=175&c=7&r=0&o=7&cb=ucfimg2&pid=1.7&rm=3&ucfimg=1" alt="Lionel Messi">
-            <div><p class="who">Lionel Messi</p><p class="role">FC Barcelona legend</p><blockquote>“Fearless and joyful — he reminds me of the joy of playing.”</blockquote></div>
-          </div>
-        </div>
-
-        <div class="chip" style="margin-top:18px">Players & Teammates</div>
-        <div class="voices">
-          <div class="quote-card">
-            <img src="https://www.fcbarcelona.com/photo-resources/2024/09/01/669647a0-0d2c-4ae0-94d9-6a4a7d4f7f3a/mini_08_PEDRI.jpg?width=1200&height=750" alt="Pedri">
-            <div><p class="who">Pedri González</p><p class="role">FC Barcelona midfielder</p><blockquote>“Every time he touches the ball, something happens.”</blockquote></div>
-          </div>
-          <div class="quote-card">
-            <img src="https://www.fcbarcelona.com/photo-resources/2024/09/01/1d1cdba9-2a3c-4f7a-8a65-2a82e4b9e4f2/mini_06_GAVI.jpg?width=1200&height=750" alt="Gavi">
-            <div><p class="who">Gavi</p><p class="role">FC Barcelona & Spain</p><blockquote>“He plays with the confidence of someone who’s been here for a decade.”</blockquote></div>
-          </div>
-          <div class="quote-card">
-            <div style="width:76px;height:76px;border-radius:50%;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;font-weight:800">RL</div>
-            <div><p class="who">Robert Lewandowski</p><p class="role">FC Barcelona striker</p><blockquote>“He’s fearless — and hungry to win.”</blockquote></div>
-          </div>
-          <div class="quote-card">
-            <div style="width:76px;height:76px;border-radius:50%;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;font-weight:800">AF</div>
-            <div><p class="who">Ansu Fati</p><p class="role">Forward</p><blockquote>“Like a little brother to me — and he’ll go even further.”</blockquote></div>
-          </div>
-          <div class="quote-card">
-            <div style="width:76px;height:76px;border-radius:50%;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;font-weight:800">FT</div>
-            <div><p class="who">Ferran Torres</p><p class="role">FC Barcelona winger</p><blockquote>“His focus in training is unbelievable.”</blockquote></div>
-          </div>
-          <div class="quote-card">
-            <div style="width:76px;height:76px;border-radius:50%;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;font-weight:800">PC</div>
-            <div><p class="who">Pau Cubarsí</p><p class="role">FC Barcelona defender</p><blockquote>“People try to unsettle him — he’s mentally strong.”</blockquote></div>
-          </div>
-          <div class="quote-card">
-            <div style="width:76px;height:76px;border-radius:50%;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;font-weight:800">DR</div>
-            <div><p class="who">Declan Rice</p><p class="role">England international</p><blockquote>“It’s scary how good he already is at his age.”</blockquote></div>
-          </div>
-          <div class="quote-card">
-            <div style="width:76px;height:76px;border-radius:50%;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;font-weight:800">DV</div>
-            <div><p class="who">David Villa</p><p class="role">Former Spain & Barça striker</p><blockquote>“His aura is powerful — very rare to see.”</blockquote></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="section" id="gallery">
-        <h2>Media Gallery</h2>
-        <p>Match photos, celebrations, and training moments. Click any image to open full size.</p>
-        <div class="carousel">
-          <a class="card" href="https://tse4.mm.bing.net/th/id/OIF.Czli7vTlBEva6pnNiqqd2Q?cb=ucfimg2ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3" target="_blank">
-            <img class="thumb" src="https://tse4.mm.bing.net/th/id/OIF.Czli7vTlBEva6pnNiqqd2Q?cb=ucfimg2ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Yamal action">
-            <h3>Signature dribble</h3>
-            <p style="opacity:.85">Right‑wing isolation and cut‑inside.</p>
-          </a>
-          <a class="card" href="https://www.fcbarcelona.com/photo-resources/2024/09/01/669647a0-0d2c-4ae0-94d9-6a4a7d4f7f3a/mini_08_PEDRI.jpg?width=1920" target="_blank">
-            <img class="thumb" src="https://www.fcbarcelona.com/photo-resources/2024/09/01/669647a0-0d2c-4ae0-94d9-6a4a7d4f7f3a/mini_08_PEDRI.jpg?width=1200&height=750" alt="Pedri">
-            <h3>Pedri link‑up</h3>
-            <p style="opacity:.85">Third‑man runs and wall passes.</p>
-          </a>
-          <a class="card" href="https://www.fcbarcelona.com/photo-resources/2024/09/01/1d1cdba9-2a3c-4f7a-8a65-2a82e4b9e4f2/mini_06_GAVI.jpg?width=1920" target="_blank">
-            <img class="thumb" src="https://www.fcbarcelona.com/photo-resources/2024/09/01/1d1cdba9-2a3c-4f7a-8a65-2a82e4b9e4f2/mini_06_GAVI.jpg?width=1200&height=750" alt="Gavi">
-            <h3>Gavi intensity</h3>
-            <p style="opacity:.85">Counter‑press and recoveries.</p>
-          </a>
-          <a class="card" href="https://upload.wikimedia.org/wikipedia/commons/9/9a/Camp_Nou_panorama.jpg" target="_blank">
-            <img class="thumb" src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Camp_Nou_panorama.jpg" alt="Camp Nou">
-            <h3>Camp Nou</h3>
-            <p style="opacity:.85">Home of many firsts.</p>
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- ================= Español ================= -->
-    <div class="lang-section" id="lang-es">
-      <div class="section">
-        <h2>Sobre Lamine Yamal</h2>
-        <p>Lamine Yamal Nasraoui Ebana (13 de julio de 2007) es un futbolista español que actúa como extremo derecho en el FC Barcelona y en la selección española. Destaca por su aceleración explosiva, regate afilado, pases disfrazados y creatividad; está considerado una de las mayores promesas de su generación.</p>
-      </div>
-
-      <div class="section grid-2">
-        <div>
-          <h2>Estilo de Juego — Lupa Táctica</h2>
-          <ul>
-            <li>Especialista en aislar laterales en la derecha; recorte hacia dentro para disparo o pase atrás.</li>
-            <li>Peligro en centros tempranos al punto de penalti para llegadores.</li>
-            <li>Puede recibir al pie o atacar el espacio a la espalda.</li>
-            <li>Toma de decisiones: disparo, pase al solapamiento o cambio de orientación.</li>
-          </ul>
-        </div>
-        <div>
-          <h2>Línea de Tiempo</h2>
-          <ul>
-            <li><strong>2014–2022:</strong> La Masia; ascenso meteórico por categorías.</li>
-            <li><strong>2023:</strong> Debut con el primer equipo a los 15 años.</li>
-            <li><strong>2024:</strong> Minutos de consolidación; debut con España y la EURO.</li>
-            <li><strong>2025:</strong> Titular habitual; reconocimiento europeo.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="section grid-2">
-        <div>
-          <h2>Premios y Récords</h2>
-          <ul>
-            <li>Goleador más joven con la selección absoluta de España.</li>
-            <li>Participante más joven en un partido de la EURO.</li>
-            <li>Entre los titulares más jóvenes del Barça en la Champions.</li>
-            <li>Galardones juveniles de primer nivel.</li>
-          </ul>
-        </div>
-        <div>
-          <h2>Datos Curiosos</h2>
-          <ul>
-            <li>Muy vinculado aún con el personal de La Masia.</li>
-            <li>Videojuegos y recuperación con compañeros.</li>
-            <li>Humildad con todo el personal.</li>
-            <li>Rutina prepartido sencilla.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="section">
-        <h2>Voces sobre Lamine Yamal</h2>
-        <div class="chip">Leyendas y Entrenadores</div>
-        <div class="voices">
-          <!-- Same cards as EN, translated -->
-          <div class="quote-card"><img src="https://th.bing.com/th/id/OIP.7Bz-T8SDB7bU4SKLv6gVmAHaEr?w=297&h=187&c=7&r=0&o=7&cb=ucfimg2&pid=1.7&rm=3&ucfimg=1" alt="Xavi"><div><p class="who">Xavi Hernández</p><p class="role">Exentrenador del FC Barcelona</p><blockquote>“Brilló en sus primeras titularidades — lee el juego como un veterano.”</blockquote></div></div>
-          <div class="quote-card"><img src="https://th.bing.com/th/id/OIP.JQROOW-bMQvPITgIblZyZgHaEr?w=273&h=180&c=7&r=0&o=7&cb=ucfimg2&pid=1.7&rm=3&ucfimg=1" alt="Hansi Flick"><div><p class="who">Hansi Flick</p><p class="role">Entrenador del FC Barcelona</p><blockquote>“Un talento único — con esa calidad, debe trabajar más que nadie.”</blockquote></div></div>
-          <div class="quote-card"><img src="https://th.bing.com/th/id/OIP.KirdgSd77m3uObqnmNpofAAAAA?w=328&h=184&c=7&r=0&o=7&cb=ucfimg2&pid=1.7&rm=3&ucfimg=1" alt="Luis de la Fuente"><div><p class="who">Luis de la Fuente</p><p class="role">Seleccionador de España</p><blockquote>“Debe mejorar cada día — con el tiempo será un futbolista maravilloso.”</blockquote></div></div>
-          <div class="quote-card"><img src="https://th.bing.com/th/id/OIP.btaxbijSR-SOmFrVmoH0igHaE8?w=296&h=198&c=7&r=0&o=7&cb=ucfimg2&pid=1.7&rm=3&ucfimg=1" alt="Simone Inzaghi"><div><p class="who">Simone Inzaghi</p><p class="role">Técnico del Inter</p><blockquote>“Un jugador que aparece cada 50 años.”</blockquote></div></div>
-          <div class="quote-card"><img src="https://th.bing.com/th/id/OIP.mjk2GHYtrZPnpudusp-I0gHaKB?w=136&h=184&c=7&r=0&o=7&cb=ucfimg2&pid=1.7&rm=3" alt="Ronaldinho"><div><p class="who">Ronaldinho</p><p class="role">Leyenda del Barça</p><blockquote>“Ahora es el turno de Lamine Yamal.”</blockquote></div></div>
-          <div class="quote-card"><img src="https://th.bing.com/th/id/OSK.HEROP9NWDr4kOUyxlIgMQCvS_nvuF8cKBUJS3_gziziJkvg?w=472&h=280&c=13&rs=2&o=6&oif=webp&cb=ucfimg1&pid=SANGAM&ucfimg=1" alt="Zinedine Zidane"><div><p class="who">Zinedine Zidane</p><p class="role">Leyenda de Francia y del Real Madrid</p><blockquote>“Verle jugar es especial — pocas veces he visto algo así.”</blockquote></div></div>
-          <div class="quote-card"><img src="https://th.bing.com/th/id/OIP.qdEonaH6K7cMOi16y5biqQHaEo?w=306&h=191&c=7&r=0&o=7&cb=ucfimg2&pid=1.7&rm=3&ucfimg=1" alt="Raúl González"><div><p class="who">Raúl González</p><p class="role">Leyenda del Real Madrid</p><blockquote>“Madurez y capacidad para decidir partidos a una edad tan corta.”</blockquote></div></div>
-          <div class="quote-card"><img src="https://th.bing.com/th/id/OIP.RqMJje0PAryvlmV4kbA4rgHaDt?w=350&h=175&c=7&r=0&o=7&cb=ucfimg2&pid=1.7&rm=3&ucfimg=1" alt="Lionel Messi"><div><p class="who">Lionel Messi</p><p class="role">Leyenda del FC Barcelona</p><blockquote>“Valiente y alegre — me recuerda la alegría de jugar.”</blockquote></div></div>
-        </div>
-
-        <div class="chip" style="margin-top:18px">Jugadores y Compañeros</div>
-        <div class="voices">
-          <div class="quote-card"><img src="https://www.fcbarcelona.com/photo-resources/2024/09/01/669647a0-0d2c-4ae0-94d9-6a4a7d4f7f3a/mini_08_PEDRI.jpg?width=1200&height=750" alt="Pedri"><div><p class="who">Pedri González</p><p class="role">Centrocampista del Barça</p><blockquote>“Cada vez que toca el balón, pasa algo.”</blockquote></div></div>
-          <div class="quote-card"><img src="https://www.fcbarcelona.com/photo-resources/2024/09/01/1d1cdba9-2a3c-4f7a-8a65-2a82e4b9e4f2/mini_06_GAVI.jpg?width=1200&height=750" alt="Gavi"><div><p class="who">Gavi</p><p class="role">Barça y España</p><blockquote>“Juega con la confianza de alguien que lleva diez años aquí.”</blockquote></div></div>
-          <div class="quote-card"><div style="width:76px;height:76px;border-radius:50%;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;font-weight:800">RL</div><div><p class="who">Robert Lewandowski</p><p class="role">Delantero del Barça</p><blockquote>“No tiene miedo — y tiene hambre de ganar.”</blockquote></div></div>
-          <div class="quote-card"><div style="width:76px;height:76px;border-radius:50%;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;font-weight:800">AF</div><div><p class="who">Ansu Fati</p><p class="role">Delantero</p><blockquote>“Es como un hermano pequeño — y llegará aún más lejos.”</blockquote></div></div>
-          <div class="quote-card"><div style="width:76px;height:76px;border-radius:50%;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;font-weight:800">FT</div><div><p class="who">Ferran Torres</p><p class="role">Extremo del Barça</p><blockquote>“Su enfoque en los entrenamientos es increíble.”</blockquote></div></div>
-          <div class="quote-card"><div style="width:76px;height:76px;border-radius:50%;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;font-weight:800">PC</div><div><p class="who">Pau Cubarsí</p><p class="role">Defensa del Barça</p><blockquote>“Intentan desestabilizarle — pero es fuerte mentalmente.”</blockquote></div></div>
-          <div class="quote-card"><div style="width:76px;height:76px;border-radius:50%;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;font-weight:800">DR</div><div><p class="who">Declan Rice</p><p class="role">Internacional inglés</p><blockquote>“Da miedo lo bueno que ya es a su edad.”</blockquote></div></div>
-          <div class="quote-card"><div style="width:76px;height:76px;border-radius:50%;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;font-weight:800">DV</div><div><p class="who">David Villa</p><p class="role">Exdelantero de España y del Barça</p><blockquote>“Su aura es poderosa — algo muy raro de ver.”</blockquote></div></div>
-        </div>
-      </div>
-
-      <div class="section">
-        <h2>Galería</h2>
-        <div class="carousel">
-          <a class="card" href="https://tse4.mm.bing.net/th/id/OIF.Czli7vTlBEva6pnNiqqd2Q?cb=ucfimg2ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3" target="_blank"><img class="thumb" src="https://tse4.mm.bing.net/th/id/OIF.Czli7vTlBEva6pnNiqqd2Q?cb=ucfimg2ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Yamal acción"><h3>Regate</h3><p style="opacity:.85">Uno contra uno y recorte.</p></a>
-          <a class="card" href="https://www.fcbarcelona.com/photo-resources/2024/09/01/669647a0-0d2c-4ae0-94d9-6a4a7d4f7f3a/mini_08_PEDRI.jpg?width=1920" target="_blank"><img class="thumb" src="https://www.fcbarcelona.com/photo-resources/2024/09/01/669647a0-0d2c-4ae0-94d9-6a4a7d4f7f3a/mini_08_PEDRI.jpg?width=1200&height=750" alt="Pedri"></a>
-          <a class="card" href="https://www.fcbarcelona.com/photo-resources/2024/09/01/1d1cdba9-2a3c-4f7a-8a65-2a82e4b9e4f2/mini_06_GAVI.jpg?width=1920" target="_blank"><img class="thumb" src="https://www.fcbarcelona.com/photo-resources/2024/09/01/1d1cdba9-2a3c-4f7a-8a65-2a82e4b9e4f2/mini_06_GAVI.jpg?width=1200&height=750" alt="Gavi"></a>
-          <a class="card" href="https://upload.wikimedia.org/wikipedia/commons/9/9a/Camp_Nou_panorama.jpg" target="_blank"><img class="thumb" src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Camp_Nou_panorama.jpg" alt="Camp Nou"></a>
-        </div>
-      </div>
-    </div>
-
-    <!-- ================= العربية ================= -->
-    <div class="lang-section" id="lang-ar" dir="rtl">
-      <div class="section">
-        <h2>عن لامين يامال</h2>
-        <p>لامين يامال نصراوي إبانا (مواليد 13 يوليو 2007) جناح أيمن في نادي برشلونة والمنتخب الإسباني. يشتهر بانطلاقاته السريعة ومراوغاته الحادة وتمريراته المخادعة وإبداعه في اتخاذ القرار، ويُعد من أبرز مواهب جيله.</p>
-      </div>
-
-      <div class="section grid-2">
-        <div>
-          <h2>أسلوب اللعب — منظور تكتيكي</h2>
-          <ul>
-            <li>متخصص عزل الأظهرة على الجهة اليمنى؛ يقطع للداخل للتسديد أو يمرر عرضية خلفية.</li>
-            <li>خطر في العرضيات المبكرة نحو نقطة الجزاء.</li>
-            <li>يتقن الاستلام قدمًا أو الركض خلف الدفاع.</li>
-            <li>قراراته توزّع بين التسديد والتمرير للاعب المتقدّم أو تحويل اللعب.</li>
-          </ul>
-        </div>
-        <div>
-          <h2>الخط الزمني</h2>
-          <ul>
-            <li><strong>2014–2022:</strong> فئات لاماسيا مع تقدّم سريع.</li>
-            <li><strong>2023:</strong> ظهور أول مع الفريق الأول بعمر 15 سنة.</li>
-            <li><strong>2024:</strong> دقائق مؤثرة واستدعاء لإسبانيا والمشاركة في اليورو.</li>
-            <li><strong>2025:</strong> تثبيت مكانته أساسيًا وإشادات أوروبية.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="section grid-2">
-        <div>
-          <h2>الجوائز والأرقام</h2>
-          <ul>
-            <li>أصغر مسجّل مع المنتخب الإسباني الأول.</li>
-            <li>أصغر لاعب في مباراة ببطولة أمم أوروبا.</li>
-            <li>من أصغر أساسيّي برشلونة في الأبطال.</li>
-            <li>جوائز شبابية كبرى.</li>
-          </ul>
-        </div>
-        <div>
-          <h2>حقائق ممتعة</h2>
-          <ul>
-            <li>صلة وثيقة بطاقم لاماسيا.</li>
-            <li>ألعاب فيديو واستشفاء مع الزملاء.</li>
-            <li>تواضع في التعامل مع الجميع.</li>
-            <li>روتين بسيط قبل المباريات.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="section">
-        <h2>أصوات عن لامين يامال</h2>
-        <div class="chip">أساطير ومدرّبون</div>
-        <div class="voices">
-          <!-- same images as EN, Arabic text -->
-          <div class="quote-card"><img src="https://th.bing.com/th/id/OIP.7Bz-T8SDB7bU4SKLv6gVmAHaEr?w=297&h=187&c=7&r=0&o=7&cb=ucfimg2&pid=1.7&rm=3&ucfimg=1" alt="Xavi"><div><p class="who">تشافي هيرنانديز</p><p class="role">مدرّب برشلونة السابق</p><blockquote>«تألّق في بداياته — يقرأ اللعب بعقلية المخضرمين.»</blockquote></div></div>
-          <div class="quote-card"><img src="https://th.bing.com/th/id/OIP.JQROOW-bMQvPITgIblZyZgHaEr?w=273&h=180&c=7&r=0&o=7&cb=ucfimg2&pid=1.7&rm=3&ucfimg=1" alt="Hansi Flick"><div><p class="who">هانزي فليك</p><p class="role">مدرّب برشلونة</p><blockquote>«موهبة فريدة — ومع هذه الجودة عليه أن يعمل أكثر من الجميع.»</blockquote></div></div>
-          <div class="quote-card"><img src="https://th.bing.com/th/id/OIP.KirdgSd77m3uObqnmNpofAAAAA?w=328&h=184&c=7&r=0&o=7&cb=ucfimg2&pid=1.7&rm=3&ucfimg=1" alt="Luis de la Fuente"><div><p class="who">لويس دي لا فوينتي</p><p class="role">مدرّب منتخب إسبانيا</p><blockquote>«عليه أن يتحسّن كل يوم — ومع الوقت سيصبح لاعبًا رائعًا.»</blockquote></div></div>
-          <div class="quote-card"><img src="https://th.bing.com/th/id/OIP.btaxbijSR-SOmFrVmoH0igHaE8?w=296&h=198&c=7&r=0&o=7&cb=ucfimg2&pid=1.7&rm=3&ucfimg=1" alt="Simone Inzaghi"><div><p class="who">سيموني إنزاغي</p><p class="role">مدرّب إنتر</p><blockquote>«لاعب يظهر كل خمسين سنة.»</blockquote></div></div>
-          <div class="quote-card"><img src="https://th.bing.com/th/id/OIP.mjk2GHYtrZPnpudusp-I0gHaKB?w=136&h=184&c=7&r=0&o=7&cb=ucfimg2&pid=1.7&rm=3" alt="Ronaldinho"><div><p class="who">رونالدينيو</p><p class="role">أسطورة برشلونة</p><blockquote>«الآن دور لامين يامال.»</blockquote></div></div>
-          <div class="quote-card"><img src="https://th.bing.com/th/id/OSK.HEROP9NWDr4kOUyxlIgMQCvS_nvuF8cKBUJS3_gziziJkvg?w=472&h=280&c=13&rs=2&o=6&oif=webp&cb=ucfimg1&pid=SANGAM&ucfimg=1" alt="Zinedine Zidane"><div><p class="who">زين الدين زيدان</p><p class="role">أسطورة فرنسا وريال مدريد</p><blockquote>«مشاهدته ممتعة — نادرًا ما ترى شيئًا مشابهًا.»</blockquote></div></div>
-          <div class="quote-card"><img src="https://th.bing.com/th/id/OIP.qdEonaH6K7cMOi16y5biqQHaEo?w=306&h=191&c=7&r=0&o=7&cb=ucfimg2&pid=1.7&rm=3&ucfimg=1" alt="Raúl González"><div><p class="who">راؤول غونزاليس</p><p class="role">أسطورة ريال مدريد</p><blockquote>«نضج وقدرة على حسم المباريات في سن مبكرة جدًا.»</blockquote></div></div>
-          <div class="quote-card"><img src="https://th.bing.com/th/id/OIP.RqMJje0PAryvlmV4kbA4rgHaDt?w=350&h=175&c=7&r=0&o=7&cb=ucfimg2&pid=1.7&rm=3&ucfimg=1" alt="Lionel Messi"><div><p class="who">ليونيل ميسي</p><p class="role">أسطورة برشلونة</p><blockquote>«جريء ومفعم بالفرح — يذكّرني بمتعة اللعب.»</blockquote></div></div>
-        </div>
-
-        <div class="chip" style="margin-top:18px">لاعبون وزملاء</div>
-        <div class="voices">
-          <div class="quote-card"><img src="https://www.fcbarcelona.com/photo-resources/2024/09/01/669647a0-0d2c-4ae0-94d9-6a4a7d4f7f3a/mini_08_PEDRI.jpg?width=1200&height=750" alt="Pedri"><div><p class="who">بيدري</p><p class="role">وسط برشلونة</p><blockquote>«كلّما لمس الكرة يحدث شيء.»</blockquote></div></div>
-          <div class="quote-card"><img src="https://www.fcbarcelona.com/photo-resources/2024/09/01/1d1cdba9-2a3c-4f7a-8a65-2a82e4b9e4f2/mini_06_GAVI.jpg?width=1200&height=750" alt="Gavi"><div><p class="who">غافي</p><p class="role">برشلونة وإسبانيا</p><blockquote>«يلعب بثقة مَن قضى عشر سنوات هنا.»</blockquote></div></div>
-          <div class="quote-card"><div style="width:76px;height:76px;border-radius:50%;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;font-weight:800">RL</div><div><p class="who">روبرت ليفاندوفسكي</p><p class="role">مهاجم برشلونة</p><blockquote>«لا يخاف — وجائع للانتصار.»</blockquote></div></div>
-          <div class="quote-card"><div style="width:76px;height:76px;border-radius:50%;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;font-weight:800">AF</div><div><p class="who">أنسو فاتي</p><p class="role">مهاجم</p><blockquote>«كأخٍ صغير بالنسبة لي — وسيصل لأبعد.»</blockquote></div></div>
-          <div class="quote-card"><div style="width:76px;height:76px;border-radius:50%;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;font-weight:800">FT</div><div><p class="who">فيران توريس</p><p class="role">جناح برشلونة</p><blockquote>«تركيزه في التمرين مذهل.»</blockquote></div></div>
-          <div class="quote-card"><div style="width:76px;height:76px;border-radius:50%;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;font-weight:800">PC</div><div><p class="who">باو كوبارسي</p><p class="role">مدافع برشلونة</p><blockquote>«يحاولون تشتيته — لكنه قوي ذهنيًا.»</blockquote></div></div>
-          <div class="quote-card"><div style="width:76px;height:76px;border-radius:50%;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;font-weight:800">DR</div><div><p class="who">ديكلان رايس</p><p class="role">دولي إنجليزي</p><blockquote>«مخيف كم هو جيّد في هذا العمر.»</blockquote></div></div>
-          <div class="quote-card"><div style="width:76px;height:76px;border-radius:50%;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;font-weight:800">DV</div><div><p class="who">دافيد فيا</p><p class="role">مهاجم إسبانيا وبرشلونة سابقًا</p><blockquote>«له هالة قوية — نادرًا ما تراها.»</blockquote></div></div>
-        </div>
-      </div>
-
-      <div class="section">
-        <h2>معرض وسائط</h2>
-        <div class="carousel">
-          <a class="card" href="https://tse4.mm.bing.net/th/id/OIF.Czli7vTlBEva6pnNiqqd2Q?cb=ucfimg2ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3" target="_blank"><img class="thumb" src="https://tse4.mm.bing.net/th/id/OIF.Czli7vTlBEva6pnNiqqd2Q?cb=ucfimg2ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3" alt="لقطة يامال"></a>
-          <a class="card" href="https://www.fcbarcelona.com/photo-resources/2024/09/01/669647a0-0d2c-4ae0-94d9-6a4a7d4f7f3a/mini_08_PEDRI.jpg?width=1920" target="_blank"><img class="thumb" src="https://www.fcbarcelona.com/photo-resources/2024/09/01/669647a0-0d2c-4ae0-94d9-6a4a7d4f7f3a/mini_08_PEDRI.jpg?width=1200&height=750" alt="Pedri"></a>
-          <a class="card" href="https://www.fcbarcelona.com/photo-resources/2024/09/01/1d1cdba9-2a3c-4f7a-8a65-2a82e4b9e4f2/mini_06_GAVI.jpg?width=1920" target="_blank"><img class="thumb" src="https://www.fcbarcelona.com/photo-resources/2024/09/01/1d1cdba9-2a3c-4f7a-8a65-2a82e4b9e4f2/mini_06_GAVI.jpg?width=1200&height=750" alt="Gavi"></a>
-          <a class="card" href="https://upload.wikimedia.org/wikipedia/commons/9/9a/Camp_Nou_panorama.jpg" target="_blank"><img class="thumb" src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Camp_Nou_panorama.jpg" alt="Camp Nou"></a>
-        </div>
-      </div>
-    </div>
+<!-- NAV -->
+<nav>
+  <h1>Arsenal FC</h1>
+  <div>
+    <a href="#players">Players</a>
+    <a href="#trophies">Trophies</a>
+    <a href="#fixtures">Fixtures</a>
   </div>
+</nav>
 
-  <footer>
-    <div class="credits">
-      <strong>Curated by:</strong> Omar Hardan • <strong>Sources:</strong> <a href="https://www.fcbarcelona.com" target="_blank" style="color:#fff">FC Barcelona Official Site</a> • <a href="https://www.uefa.com" target="_blank" style="color:#fff">UEFA</a> • <a href="https://www.laliga.com" target="_blank" style="color:#fff">LaLiga</a>
+<!-- HERO -->
+<div class="hero">
+  <h2>North London Forever ❤️🤍</h2>
+</div>
+
+<!-- ABOUT -->
+<section>
+  <h2>About Arsenal</h2>
+  <p>
+    Arsenal Football Club, founded in 1886, is one of the most historic and successful clubs in English football.
+    Known for their beautiful style of play, incredible fanbase, and legendary stadium — The Emirates.
+  </p>
+</section>
+
+<!-- PLAYERS -->
+<section id="players">
+  <h2>Star Players</h2>
+  <div class="players">
+
+    <div class="card">
+      <img src="https://i.ibb.co/BnDxrLd/saka.jpg" alt="Bukayo Saka">
+      <h3>Bukayo Saka</h3>
+      <p>Right Winger</p>
     </div>
-  </footer>
 
-  <script>
-    function switchLang(lang){
-      const ids = ["en","es","ar"];
-      ids.forEach(code=>{
-        const sec = document.getElementById('lang-'+code);
-        const btn = document.getElementById('btn-'+code);
-        if(code===lang){ sec.classList.add('active'); btn.classList.add('active-btn'); }
-        else{ sec.classList.remove('active'); btn.classList.remove('active-btn'); }
-      });
+    <div class="card">
+      <img src="https://i.ibb.co/5KkM6rh/odegaard.jpg" alt="Ødegaard">
+      <h3>Martin Ødegaard</h3>
+      <p>Midfielder</p>
+    </div>
 
-      const quoteTitle = document.getElementById('quote-title');
-      const quoteText = document.getElementById('quote-text');
-      if(lang==='en'){
-        quoteTitle.textContent = '“A fearless winger for a fearless club.”';
-        quoteText.textContent = 'From La Masia playgrounds to the Camp Nou spotlight, Lamine Yamal’s journey is the story of talent meeting courage.';
-        document.documentElement.setAttribute('lang','en');
-        document.getElementById('lang-ar').removeAttribute('dir');
-      }
-      if(lang==='es'){
-        quoteTitle.textContent = '“Un extremo valiente para un club valiente.”';
-        quoteText.textContent = 'De los patios de La Masia al gran foco del Camp Nou: el talento de Yamal se une a su coraje.';
-        document.documentElement.setAttribute('lang','es');
-        document.getElementById('lang-ar').removeAttribute('dir');
-      }
-      if(lang==='ar'){
-        quoteTitle.textContent = '«جناحٌ جريء لنادٍ جريء.»';
-        quoteText.textContent = 'من ملاعب لاماسيا إلى أضواء كامب نو، رحلة يامال حكاية موهبة تلتقي بالشجاعة.';
-        document.documentElement.setAttribute('lang','ar');
-        document.getElementById('lang-ar').setAttribute('dir','rtl');
-      }
-      window.scrollTo({top:0, behavior:'smooth'});
-    }
-  </script>
+    <div class="card">
+      <img src="https://i.ibb.co/Dkyr5gZ/saliba.jpg" alt="Saliba">
+      <h3>William Saliba</h3>
+      <p>Centre Back</p>
+    </div>
+
+    <div class="card">
+      <img src="https://i.ibb.co/m4BbVCA/martinelli.jpg" alt="Martinelli">
+      <h3>Gabriel Martinelli</h3>
+      <p>Left Winger</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- TROPHIES -->
+<section id="trophies">
+  <h2>Trophies</h2>
+  <ul>
+    <li>14 × FA Cup (Record Holders)</li>
+    <li>3 × Premier League Titles</li>
+    <li>17 × Community Shield</li>
+    <li>1 × UEFA Cup Winners’ Cup</li>
+  </ul>
+</section>
+
+<!-- FIXTURES -->
+<section id="fixtures">
+  <h2>Upcoming Fixtures</h2>
+  <p>• Arsenal vs Tottenham — Sunday 4:30 PM<br>
+     • Arsenal vs Chelsea — Saturday 8:00 PM<br>
+     • Arsenal vs Man City — Next Sunday 6:00 PM
+  </p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  Arsenal Fan Page • COYG 🔴⚪
+</footer>
+
 </body>
-<html>
+</html>
