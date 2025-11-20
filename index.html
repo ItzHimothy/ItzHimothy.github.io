@@ -2,363 +2,596 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <title>Manchester United — Red Devils Fan Page</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Arsenal FC — Glazing Web</title>
-
-  <!-- Optional Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
   <style>
-    :root{
-      --arsenal-red:#db0007;
-      --arsenal-gold:#d6a756;
-      --bg:#050508;
-      --glass:rgba(255,255,255,0.08);
-      --glass-strong:rgba(255,255,255,0.18);
-      --white:#ffffff;
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap');
+
+    :root {
+      --united-red:#d20a0a;
+      --united-dark-red:#7b0000;
+      --united-black:#050509;
+      --united-gold:#f6c453;
+      --card-bg:rgba(5,5,10,0.9);
+      --border-glow:rgba(255, 205, 96, 0.8);
     }
 
-    *{margin:0;padding:0;box-sizing:border-box}
+    *{box-sizing:border-box;margin:0;padding:0}
 
     body{
-      font-family:"Poppins",sans-serif;
-      background:radial-gradient(circle at top,#2b2b36 0,#050508 55%,#000 100%);
-      color:var(--white);
-      min-height:100vh;
-      overflow-x:hidden;
-    }
-
-    /* NAV */
-    .nav{
-      position:fixed;
-      top:0;left:0;right:0;
-      padding:14px 8%;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      backdrop-filter:blur(14px);
-      background:linear-gradient(to bottom,rgba(0,0,0,0.7),transparent);
-      z-index:10;
-    }
-    .nav-logo{
-      font-weight:700;
-      letter-spacing:1px;
-      font-size:1.1rem;
-    }
-    .nav-logo span{
-      color:var(--arsenal-red);
-    }
-
-    /* HERO */
-    .hero{
-      position:relative;
-      height:100vh;
-      padding:0 8%;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:3rem;
-    }
-    .hero::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:url("https://wallpapercave.com/wp/wp1926578.jpg") center/cover no-repeat;
-      opacity:0.25;
-      z-index:-2;
-    }
-    .hero::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:radial-gradient(circle at top left,rgba(219,0,7,0.7),transparent 55%);
-      z-index:-1;
-      mix-blend-mode:screen;
-    }
-    .hero-left h1{
-      font-size:3.4rem;
-      line-height:1.1;
-      margin-bottom:16px;
-    }
-    .hero-left h1 span{color:var(--arsenal-red);}
-    .hero-left p{
-      max-width:420px;
-      font-size:1.05rem;
-      color:#e6e6e6;
-    }
-    .hero-tag{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:6px 12px;
-      border-radius:999px;
-      border:1px solid var(--glass-strong);
-      background:var(--glass);
-      font-size:0.8rem;
-      margin-bottom:10px;
-    }
-    .hero-tag-dot{
-      width:9px;height:9px;border-radius:50%;
-      background:var(--arsenal-gold);
-      box-shadow:0 0 10px var(--arsenal-gold);
-    }
-    .hero-btns{
-      margin-top:22px;
-      display:flex;
-      gap:14px;
-    }
-    .btn-primary,
-    .btn-ghost{
-      padding:11px 22px;
-      border-radius:999px;
-      border:none;
-      font-size:0.95rem;
-      cursor:pointer;
-      transition:.25s;
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-    }
-    .btn-primary{
-      background:var(--arsenal-red);
+      font-family:"Poppins",system-ui,-apple-system,blinkmacsystemfont,sans-serif;
       color:#fff;
-      box-shadow:0 0 18px rgba(219,0,7,0.7);
+      background: radial-gradient(circle at top, #ff3b3b 0, #7b0000 40%, #000 80%);
+      background-size: 200% 200%;
+      animation:bgShift 24s ease-in-out infinite;
+      min-height:100vh;
     }
-    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 0 26px rgba(219,0,7,0.9);}
-    .btn-ghost{
-      background:transparent;
-      border:1px solid var(--glass-strong);
+
+    @keyframes bgShift{
+      0%{background-position:0% 0%;}
+      50%{background-position:100% 50%;}
+      100%{background-position:0% 100%;}
+    }
+
+    header{
+      padding:16px 6vw 4px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      position:sticky;
+      top:0;
+      backdrop-filter:blur(14px);
+      background:linear-gradient(to bottom,rgba(0,0,0,0.85),rgba(0,0,0,0.4),transparent);
+      z-index:20;
+    }
+
+    .logo-mark{
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .logo-badge{
+      width:42px;
+      height:42px;
+      border-radius:50%;
+      background:conic-gradient(from 210deg,var(--united-red),var(--united-gold),var(--united-black),var(--united-red));
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow:0 0 14px rgba(0,0,0,0.7),0 0 18px rgba(255,0,0,0.65);
+      font-weight:900;
+      font-size:18px;
+    }
+    .logo-text-main{
+      font-weight:800;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      font-size:13px;
+    }
+    .logo-text-sub{
+      font-size:11px;
       color:#f0f0f0;
+      opacity:.8;
     }
-    .btn-ghost:hover{
-      background:var(--glass);
-      transform:translateY(-2px);
+
+    nav{
+      display:flex;
+      gap:16px;
+      font-size:13px;
+      text-transform:uppercase;
+    }
+    nav a{
+      text-decoration:none;
+      color:#eee;
+      opacity:.9;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid transparent;
+      transition:.25s;
+      font-weight:500;
+    }
+    nav a:hover{
+      border-color:var(--united-gold);
+      background:rgba(0,0,0,0.7);
+      box-shadow:0 0 18px rgba(0,0,0,0.6);
+    }
+
+    .hero{
+      padding:36px 6vw 40px;
+      display:grid;
+      grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);
+      gap:40px;
+      align-items:center;
+    }
+    @media(max-width:900px){
+      .hero{grid-template-columns:1fr;gap:28px;}
+    }
+
+    .tag-pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      padding:4px 10px 4px 4px;
+      border-radius:999px;
+      background:rgba(0,0,0,0.7);
+      border:1px solid rgba(246,196,83,0.55);
+      margin-bottom:14px;
+    }
+    .tag-pill span.icon{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:20px;
+      height:20px;
+      border-radius:999px;
+      background:radial-gradient(circle at 30% 20%,#ffef9a,var(--united-gold));
+      color:#5f0000;
+      font-size:13px;
+      font-weight:900;
+    }
+
+    .hero h1{
+      font-size:clamp(34px,4vw,46px);
+      line-height:1.05;
+      margin-bottom:14px;
+      text-shadow:0 0 24px rgba(0,0,0,0.95);
+    }
+    .hero h1 span{
+      color:var(--united-gold);
+    }
+    .hero p.subtitle{
+      font-size:14px;
+      max-width:520px;
+      color:#f5f5f5;
+      opacity:.88;
+      margin-bottom:20px;
+    }
+
+    .hero-metrics{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+    }
+    .metric-pill{
+      background:rgba(0,0,0,0.9);
+      border-radius:14px;
+      padding:8px 12px;
+      border:1px solid rgba(255,255,255,0.06);
+      box-shadow:0 0 20px rgba(0,0,0,0.8);
+      font-size:11px;
+    }
+    .metric-pill strong{
+      color:var(--united-gold);
+      font-size:13px;
     }
 
     .hero-right{
-      width:320px;
-      max-width:40vw;
+      position:relative;
+      display:flex;
+      justify-content:center;
     }
-    .crest-card{
-      padding:18px;
-      border-radius:24px;
-      background:var(--glass);
-      border:1px solid var(--glass-strong);
-      backdrop-filter:blur(18px);
-      text-align:center;
-      box-shadow:0 18px 40px rgba(0,0,0,0.75);
+    .crest-orbit{
+      width:260px;
+      height:260px;
+      border-radius:50%;
+      background:radial-gradient(circle at 30% 15%,#ffea9a,#d20a0a 40%,#000);
+      box-shadow:0 0 45px rgba(0,0,0,0.9),0 0 28px rgba(255,0,0,0.55);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      position:relative;
+      overflow:hidden;
     }
-    .crest-card img{
-      width:140px;
-      margin-bottom:10px;
+    .crest-orbit::before{
+      content:"RED DEVILS";
+      position:absolute;
+      inset:24px;
+      border-radius:50%;
+      border:1px dashed rgba(0,0,0,0.35);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:11px;
+      letter-spacing:.28em;
+      text-indent:.28em;
+      opacity:.75;
     }
-    .crest-card h3{
-      font-weight:600;
-      margin-bottom:4px;
-    }
-    .crest-card p{
-      font-size:0.9rem;
-      color:#d6d6d6;
-    }
-
-    /* GENERAL SECTIONS */
-    section{
-      padding:60px 8% 40px;
-    }
-    h2.section-title{
-      text-align:center;
-      font-size:2.4rem;
-      margin-bottom:30px;
-    }
-    h2.section-title span{
-      color:var(--arsenal-gold);
-    }
-
-    /* CARDS GRID */
-    .card-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-      gap:24px;
-    }
-    .card{
-      border-radius:22px;
-      padding:18px 18px 20px;
-      background:var(--glass);
-      border:1px solid var(--glass-strong);
-      backdrop-filter:blur(14px);
-      box-shadow:0 12px 30px rgba(0,0,0,0.65);
-      transition:.25s;
-    }
-    .card:hover{
-      transform:translateY(-6px);
-      box-shadow:0 18px 40px rgba(0,0,0,0.9);
-      border-color:var(--arsenal-red);
-    }
-    .card img{
-      width:100%;
-      border-radius:18px;
-      margin-bottom:12px;
-      display:block;
-    }
-    .card h3{
-      font-size:1.2rem;
-      margin-bottom:4px;
-    }
-    .card span.small{
-      font-size:0.8rem;
-      color:var(--arsenal-gold);
+    .crest-core{
+      width:110px;
+      height:110px;
+      border-radius:50%;
+      background:radial-gradient(circle at 30% 20%,#ffd966,#b30000);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex-direction:column;
+      color:#5a0000;
+      font-weight:900;
       text-transform:uppercase;
-      letter-spacing:0.06em;
+      font-size:22px;
     }
-    .card p{
-      margin-top:6px;
-      font-size:0.9rem;
-      color:#e0e0e0;
+    .crest-core span.small{
+      font-size:11px;
+      letter-spacing:.16em;
+      margin-top:3px;
     }
 
-    /* TROPHIES */
-    .trophy-card{
-      text-align:center;
+    main{padding:0 6vw 60px;}
+
+    .section{
+      margin-top:36px;
     }
-    .trophy-number{
-      font-size:2rem;
+    .section-header{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-end;
+      gap:16px;
+      margin-bottom:16px;
+    }
+    .section-title{
+      font-size:20px;
       font-weight:700;
-      color:var(--arsenal-gold);
-      margin-bottom:4px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+    .section-sub{
+      font-size:12px;
+      opacity:.8;
+      max-width:360px;
     }
 
-    /* FOOTER */
+    .players-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:22px;
+    }
+
+    .player-card{
+      background:var(--card-bg);
+      border-radius:24px;
+      padding:16px 16px 14px;
+      border:1px solid rgba(255,255,255,0.04);
+      box-shadow:0 0 22px rgba(0,0,0,0.85);
+      position:relative;
+      overflow:hidden;
+      transition:.28s transform,.28s box-shadow,.28s border-color;
+    }
+    .player-card::before{
+      content:"";
+      position:absolute;
+      inset:-40%;
+      background:radial-gradient(circle at 0 0,rgba(246,196,83,0.2),transparent 60%);
+      opacity:0;
+      transition:.3s opacity;
+      pointer-events:none;
+    }
+    .player-card:hover{
+      transform:translateY(-6px) scale(1.01);
+      border-color:rgba(246,196,83,0.6);
+      box-shadow:0 0 30px rgba(0,0,0,0.95),0 0 40px rgba(214,0,0,0.7);
+    }
+    .player-card:hover::before{opacity:1;}
+
+    .player-photo-wrap{
+      background:radial-gradient(circle at 50% 10%,rgba(255,255,255,0.06),rgba(0,0,0,0.95));
+      border-radius:18px;
+      padding:10px 2px 0;
+      margin-bottom:12px;
+      min-height:260px;
+      display:flex;
+      align-items:flex-end;
+      justify-content:center;
+      overflow:hidden;
+    }
+
+    .player-photo{
+      max-height:260px;
+      width:auto;
+      display:block;
+      filter:drop-shadow(0 16px 25px rgba(0,0,0,0.9));
+      transform:translateY(8px);
+      transition:.3s transform;
+    }
+    .player-card:hover .player-photo{
+      transform:translateY(2px) scale(1.03);
+    }
+
+    .player-meta{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      margin-bottom:2px;
+    }
+    .player-name{
+      font-weight:700;
+      font-size:15px;
+    }
+    .player-role{
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      color:rgba(255,255,255,0.72);
+    }
+    .player-tag{
+      font-size:11px;
+      padding:3px 8px;
+      border-radius:999px;
+      border:1px solid rgba(246,196,83,0.7);
+      background:rgba(0,0,0,0.8);
+      color:var(--united-gold);
+    }
+    .player-desc{
+      margin-top:6px;
+      font-size:12px;
+      line-height:1.5;
+      color:rgba(245,245,245,0.9);
+    }
+
+    .legends-row{
+      display:flex;
+      gap:18px;
+      overflow-x:auto;
+      padding-bottom:6px;
+      scrollbar-width:thin;
+    }
+    .legends-row::-webkit-scrollbar{
+      height:6px;
+    }
+    .legends-row::-webkit-scrollbar-thumb{
+      background:rgba(255,255,255,0.2);
+      border-radius:999px;
+    }
+
+    .legend-card{
+      min-width:210px;
+      background:linear-gradient(135deg,rgba(0,0,0,0.9),rgba(91,0,0,0.95));
+      border-radius:20px;
+      padding:12px 14px 14px;
+      border:1px solid rgba(246,196,83,0.7);
+      box-shadow:0 0 20px rgba(0,0,0,0.9);
+    }
+    .legend-name{
+      font-weight:700;
+      font-size:14px;
+      margin-bottom:2px;
+    }
+    .legend-meta{
+      font-size:11px;
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      color:rgba(255,255,255,0.78);
+      margin-bottom:6px;
+    }
+    .legend-desc{
+      font-size:12px;
+      line-height:1.4;
+      color:#f7f7f7;
+    }
+
     footer{
-      padding:26px 8% 30px;
+      padding:18px 6vw 26px;
+      font-size:11px;
+      opacity:.8;
       text-align:center;
-      font-size:0.85rem;
-      border-top:1px solid var(--glass-strong);
-      background:rgba(0,0,0,0.85);
-      margin-top:40px;
     }
 
-    /* RESPONSIVE */
-    @media (max-width:800px){
-      .hero{
-        flex-direction:column;
-        justify-content:flex-start;
-        padding-top:90px;
-        text-align:left;
-      }
-      .hero-right{
-        width:100%;
-        max-width:360px;
-      }
-    }
   </style>
 </head>
 <body>
+<header>
+  <div class="logo-mark">
+    <div class="logo-badge">MU</div>
+    <div>
+      <div class="logo-text-main">Manchester United</div>
+      <div class="logo-text-sub">Old Trafford • Theatre of Dreams</div>
+    </div>
+  </div>
+  <nav>
+    <a href="#squad">Current Squad</a>
+    <a href="#legends">Legends</a>
+    <a href="#about">About the Club</a>
+  </nav>
+</header>
 
-  <!-- NAV -->
-  <header class="nav">
-    <div class="nav-logo"><span>Arsenal</span> Glazing</div>
-  </header>
+<section class="hero">
+  <div>
+    <div class="tag-pill">
+      <span class="icon">🔴</span>
+      RED DEVILS • SINCE 1878
+    </div>
+    <h1><span>Glory Glory</span><br /> Manchester United Fan Hub</h1>
+    <p class="subtitle">
+      A clean, modern fan-made page celebrating United’s present heroes and immortal legends —
+      built for Reds who live every kick, tackle and last-minute winner.
+    </p>
+    <div class="hero-metrics">
+      <div class="metric-pill"><strong>20</strong><br />League titles</div>
+      <div class="metric-pill"><strong>3</strong><br />European Cups</div>
+      <div class="metric-pill"><strong>Sir Alex Era</strong><br />The standard of greatness</div>
+    </div>
+  </div>
 
-  <!-- HERO -->
-  <main>
-    <section class="hero">
-      <div class="hero-left">
-        <div class="hero-tag">
-          <span class="hero-tag-dot"></span>
-          <span>North London Forever</span>
+  <div class="hero-right">
+    <div class="crest-orbit">
+      <div class="crest-core">
+        MUFC
+        <span class="small">1878</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<main>
+  <!-- CURRENT STARS -->
+  <section id="squad" class="section">
+    <div class="section-header">
+      <div>
+        <div class="section-title">Current Reds</div>
+        <div class="section-sub">Four modern icons of Manchester United’s first-team era.</div>
+      </div>
+    </div>
+
+    <div class="players-grid">
+      <!-- Bruno Fernandes -->
+      <article class="player-card">
+        <div class="player-photo-wrap">
+          <img class="player-photo"
+               src="https://assets.manutd.com/AssetPicker/images/0/0/22/86/1464002/8-Bruno-Fernandes1751376414332.png"
+               alt="Bruno Fernandes in Manchester United home kit">
         </div>
-        <h1><span>Arsenal</span> FC<br>Glazing Website</h1>
-        <p>
-          A glassy fan page celebrating Bukayo Saka, Martin Ødegaard and Gabriel Martinelli —
-          the present and future of Arsenal Football Club.
+        <div class="player-meta">
+          <div>
+            <div class="player-name">Bruno Fernandes</div>
+            <div class="player-role">Midfielder • Captain • No. 8</div>
+          </div>
+          <div class="player-tag">Playmaker</div>
+        </div>
+        <p class="player-desc">
+          Creative heartbeat of the team, Bruno dictates the tempo with outrageous passing,
+          relentless pressing and clutch goals from distance and the penalty spot.
         </p>
-        <div class="hero-btns">
-          <button class="btn-primary">View Star Players</button>
-          <button class="btn-ghost">Club Honours</button>
+      </article>
+
+      <!-- Marcus Rashford -->
+      <article class="player-card">
+        <div class="player-photo-wrap">
+          <img class="player-photo"
+               src="https://assets.manutd.com/AssetPicker/images/0/0/22/86/1464024/5_Harry_Maguire1751368317123_thumb.jpg"
+               alt="Harry Maguire in Manchester United home kit">
+        </div>
+        <div class="player-meta">
+          <div>
+            <div class="player-name">Harry Maguire</div>
+            <div class="player-role">Defender • Man UTD Talent • No. 5</div>
+          </div>
+          <div class="player-tag">Homegrown</div>
+        </div>
+        <p class="player-desc">
+          Lightning pace, sharp finishing and a trademark far-post curl — Rashford remains one
+          of Carrington’s finest graduates and a modern symbol of United’s Academy.
+        </p>
+      </article>
+
+      <!-- Rasmus Højlund -->
+      <article class="player-card">
+        <div class="player-photo-wrap">
+          <img class="player-photo"
+               src="https://assets.manutd.com/AssetPicker/images/0/0/22/130/1475215/PlayerProfile_Thumbnail_Template_BS1754911730630_thumb.jpg"
+               alt="Benjamin Sesko in Manchester United home kit">
+        </div>
+        <div class="player-meta">
+          <div>
+            <div class="player-name">Benjamin Sesko</div>
+            <div class="player-role">Striker • No. 30</div>
+          </div>
+          <div class="player-tag">Future No. 9</div>
+        </div>
+        <p class="player-desc">
+          The aggressive Danish centre-forward who attacks space, presses defenders and
+          thrives on the Old Trafford roar when the ball is whipped into the box.
+        </p>
+      </article>
+
+      <!-- Lisandro Martínez -->
+      <article class="player-card">
+        <div class="player-photo-wrap">
+          <img class="player-photo"
+               src="https://assets.manutd.com/AssetPicker/images/0/0/22/86/1463992/6-Lisandro-Martinez1751369212439.png"
+               alt="Lisandro Martínez in Manchester United home kit">
+        </div>
+        <div class="player-meta">
+          <div>
+            <div class="player-name">Lisandro Martínez</div>
+            <div class="player-role">Defender • No. 6</div>
+          </div>
+          <div class="player-tag">The Butcher</div>
+        </div>
+        <p class="player-desc">
+          Tenacious, fearless and brilliant on the ball, Licha brings South American fire to
+          United’s back line with crunching tackles and daring line-breaking passes.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <!-- LEGENDS -->
+  <section id="legends" class="section">
+    <div class="section-header">
+      <div>
+        <div class="section-title">Retired Legends</div>
+        <div class="section-sub">
+          Gods of Old Trafford whose names are written into club history forever.
         </div>
       </div>
+    </div>
 
-      <div class="hero-right">
-        <div class="crest-card">
-          <img src="https://upload.wikimedia.org/wikipedia/en/5/53/Arsenal_FC.svg" alt="Arsenal crest">
-          <h3>We are the Gooners</h3>
-          <p>13 league titles • 14 FA Cups • countless memories at the Emirates.</p>
+    <div class="legends-row">
+      <article class="legend-card">
+        <div class="legend-name">Eric Cantona</div>
+        <div class="legend-meta">Forward • 1992–1997</div>
+        <p class="legend-desc">
+          The King. The collar-up icon who transformed the early Premier League era and
+          inspired a generation with swagger, technique and leadership.
+        </p>
+      </article>
+
+      <article class="legend-card">
+        <div class="legend-name">Ryan Giggs</div>
+        <div class="legend-meta">Winger • 1990–2014</div>
+        <p class="legend-desc">
+          Record appearance maker, master of the left flank and scorer of one of the
+          greatest FA Cup goals in history against Arsenal in 1999.
+        </p>
+      </article>
+
+      <article class="legend-card">
+        <div class="legend-name">Paul Scholes</div>
+        <div class="legend-meta">Midfielder • 1993–2013</div>
+        <p class="legend-desc">
+          Quiet assassin of midfields everywhere. World-class passing range, late runs
+          into the box and volleys that still live in every highlight reel.
+        </p>
+      </article>
+
+      <article class="legend-card">
+        <div class="legend-name">Wayne Rooney</div>
+        <div class="legend-meta">Forward • 2004–2017</div>
+        <p class="legend-desc">
+          Club’s all-time leading scorer, capable of everything from halfway-line lobs
+          to overhead kicks in Manchester derbies.
+        </p>
+      </article>
+
+      <article class="legend-card">
+        <div class="legend-name">Nemanja Vidić</div>
+        <div class="legend-meta">Defender • 2006–2014</div>
+        <p class="legend-desc">
+          Warrior at the back. Ruthless in the air, fearless in 50/50s and the perfect
+          partner to Rio Ferdinand during title-winning years.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ABOUT BLURB -->
+  <section id="about" class="section">
+    <div class="section-header">
+      <div>
+        <div class="section-title">About This Page</div>
+        <div class="section-sub">
+          A simple fan-made site — no official affiliation — built just to celebrate the
+          colors, noise and chaos of Manchester United.
         </div>
       </div>
-    </section>
+    </div>
+  </section>
+</main>
 
-    <!-- STAR PLAYERS -->
-    <section id="players">
-      <h2 class="section-title">Star <span>Players</span></h2>
-
-      <div class="card-grid">
-        <!-- Saka -->
-        <article class="card">
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/1_bukayo_saka_arsenal_2025_%28cropped%29.jpg/250px-1_bukayo_saka_arsenal_2025_%28cropped%29.jpg"
-            alt="Bukayo Saka with Arsenal in 2025">
-          <span class="small">Right Winger • #7</span>
-          <h3>Bukayo Saka</h3>
-          <p>
-            The starboy. Elite 1v1 dribbler, deadly left foot and pure clutch in big games.
-          </p>
-        </article>
-
-        <!-- Odegaard -->
-        <article class="card">
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Norway_Italy_-_June_2025_E_04.jpg/250px-Norway_Italy_-_June_2025_E_04.jpg"
-            alt="Martin Ødegaard applauding for Norway">
-          <span class="small">Captain • #8</span>
-          <h3>Martin Ødegaard</h3>
-          <p>
-            The brain of the team. Vision, passing and control — the conductor of Arsenal’s attack.
-          </p>
-        </article>
-
-        <!-- Martinelli -->
-        <article class="card">
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/1_Gabriel_Martinelli_arsenal_2025_%28cropped%29.jpg/250px-1_Gabriel_Martinelli_arsenal_2025_%28cropped%29.jpg"
-            alt="Gabriel Martinelli with Arsenal in 2025">
-          <span class="small">Left Winger • #11</span>
-          <h3>Gabriel Martinelli</h3>
-          <p>
-            Chaos merchant. Relentless pressing, explosive pace and a serious eye for goal.
-          </p>
-        </article>
-      </div>
-    </section>
-
-    <!-- TROPHIES -->
-    <section id="trophies">
-      <h2 class="section-title">Club <span>Honours</span></h2>
-
-      <div class="card-grid">
-        <article class="card trophy-card">
-          <div class="trophy-number">13</div>
-          <h3>League Titles</h3>
-          <p>Including the famous Invincibles season of 2003–04.</p>
-        </article>
-
-        <article class="card trophy-card">
-          <div class="trophy-number">14</div>
-          <h3>FA Cups</h3>
-          <p>The most FA Cup wins of any club in English football.</p>
-        </article>
-
-        <article class="card trophy-card">
-          <div class="trophy-number">2</div>
-          <h3>Community Shields (recent)</h3>
-          <p>Modern-era silverware that kicked off new eras under Arteta.</p>
-        </article>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    Made with ❤️ for Arsenal fans — Made by Omar Hardan
-  </footer>
-
+<footer>
+  Made by a United fan for United fans. omar made it for tobi 🔴⚫
+</footer>
 </body>
 </html>
