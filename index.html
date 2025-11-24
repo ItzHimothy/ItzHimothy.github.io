@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title data-key="title">Best UAE Crypto Exchanges 2025</title>
-  <meta name="description" content="Compare the best UAE crypto exchanges. Rain, BitOasis, Binance, and more. Live prices, reviews, and exclusive affiliate bonuses.">
+  <meta name="description" content="Compare the best UAE crypto exchanges. Live prices, reviews, and exclusive affiliate bonuses.">
   <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/12114/12114233.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   
@@ -35,14 +35,22 @@
       color: var(--text-main); 
       margin: 0; 
       line-height: 1.6; 
+      padding-bottom: 70px; /* Space for the fixed footer */
     }
     
-    /* HEADER */
+    /* STICKY HEADER WRAPPER */
+    .sticky-header-wrapper {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        border-bottom: 1px solid var(--border);
+    }
+    
+    /* HEADER & NAVIGATION */
     header { 
-      background: radial-gradient(circle at top, #1a222e 0%, var(--bg-body) 100%);
-      padding: 80px 20px; 
+      background: radial-gradient(circle at top, #1a222e 0%, var(--bg-surface) 100%);
+      padding: 60px 20px 20px 20px; 
       text-align: center; 
-      border-bottom: 1px solid var(--border); 
     }
     header h1 {
         font-size: 48px;
@@ -53,19 +61,14 @@
         font-weight: 900;
         letter-spacing: -1px;
     }
-
-    /* NAVIGATION */
     nav { 
-      background: rgba(17, 17, 17, 0.9);
-      backdrop-filter: blur(10px);
+      background: rgba(17, 17, 17, 0.95);
+      backdrop-filter: blur(8px);
       padding: 15px; 
       display: flex; 
       justify-content: center; 
       gap: 15px; 
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      border-bottom: 1px solid var(--border);
+      border-top: 1px solid var(--border);
       flex-wrap: wrap;
     }
     nav a { 
@@ -81,12 +84,38 @@
     nav a:hover, nav a.active {
         color: #000;
         background: var(--accent-green);
-        box-shadow: 0 0 15px rgba(0, 255, 163, 0.3);
+        box-shadow: 0 0 10px rgba(0, 255, 163, 0.3);
     }
 
-    /* LAYOUT */
+    /* PRICE TICKER */
+    .ticker-container {
+        overflow: hidden;
+        height: 40px;
+        background: var(--bg-body);
+        border-bottom: 1px solid var(--border);
+        position: relative;
+        display: flex;
+        align-items: center;
+        z-index: 101;
+    }
+    .ticker-wrap {
+        display: flex;
+        width: 100%;
+        animation: marquee 135s linear infinite; /* Adjusted duration for 43 coins */
+        white-space: nowrap;
+    }
+    .ticker-item { padding: 0 25px; display: flex; align-items: center; font-size: 14px; font-weight: 600; color: var(--text-main); }
+    .ticker-item i { margin-right: 8px; font-size: 10px; }
+    .price-up { color: var(--accent-green); }
+    .price-down { color: var(--accent-red); }
+
+    @keyframes marquee {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-100%); }
+    }
+
+    /* LAYOUT & CARDS */
     .container { max-width: 1280px; margin: 0 auto; padding: 40px 20px; }
-    
     .section-title {
         border-left: 5px solid var(--accent-green);
         padding-left: 20px;
@@ -97,193 +126,416 @@
         align-items: center;
         gap: 15px;
     }
-
-    /* 🃏 CARDS & GRIDS */
     .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
-    
-    .card { 
-      background: var(--bg-card); 
-      padding: 25px; 
-      border-radius: var(--radius); 
-      border: 1px solid var(--border); 
-      position: relative;
-      overflow: hidden;
-      transition: all 0.3s ease;
-      display: flex;
-      flex-direction: column;
-    }
+    .card { background: var(--bg-card); padding: 25px; border-radius: var(--radius); border: 1px solid var(--border); position: relative; overflow: hidden; transition: all 0.3s ease; display: flex; flex-direction: column; justify-content: space-between; }
     .card:hover { transform: translateY(-7px); border-color: var(--accent-green); }
-    
-    .card h3 { font-size: 22px; margin: 10px 0; display: flex; align-items: center; gap: 10px; }
-    .card p { font-size: 14px; color: var(--text-muted); margin-bottom: 20px; flex-grow: 1; }
-    
-    .features { list-style: none; padding: 0; margin-bottom: 20px; font-size: 13px; color: #ddd; }
-    .features li { margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
-    .features i { color: var(--accent-green); }
 
-    /* BADGES */
-    .badge {
-        position: absolute; top: 15px; right: 15px;
-        padding: 5px 10px; border-radius: 50px;
-        font-size: 10px; font-weight: 800; text-transform: uppercase;
-        border: 1px solid transparent;
-    }
-    .badge.uae { background: rgba(255, 215, 0, 0.1); color: var(--accent-gold); border-color: var(--accent-gold); }
-    .badge.top { background: rgba(0, 255, 163, 0.1); color: var(--accent-green); border-color: var(--accent-green); }
-    .badge.pro { background: rgba(61, 90, 254, 0.1); color: var(--accent-blue); border-color: var(--accent-blue); }
-    .badge.high { background: rgba(213, 0, 249, 0.1); color: var(--accent-purple); border-color: var(--accent-purple); }
+    .card h3 { margin-top: 10px; margin-bottom: 5px; font-size: 24px; }
+    .card p { margin-bottom: 20px; font-size: 15px; color: var(--text-muted); flex-grow: 1;}
 
-    /* BUTTONS */
-    .btn {
-        display: block; width: 100%; text-align: center; padding: 14px;
-        background: #fff; color: #000; text-decoration: none;
-        font-weight: 800; border-radius: 8px; transition: 0.2s; border: none; cursor: pointer;
-    }
+    .btn { display: block; width: 100%; text-align: center; padding: 14px; background: #fff; color: #000; text-decoration: none; font-weight: 800; border-radius: 8px; transition: 0.2s; border: none; cursor: pointer; }
     .btn:hover { background: var(--accent-green); transform: scale(1.02); }
 
-    /* 🛠 TOOLS (Converter & Chart) */
-    .tool-box {
-        background: var(--bg-card); padding: 30px; border-radius: var(--radius);
-        border: 1px solid var(--border); margin-bottom: 40px;
+    /* ⭐ STAR RATING SYSTEM */
+    .score-block {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+        padding: 10px 0;
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
     }
-    .swap-row { display: flex; gap: 15px; margin-bottom: 15px; }
-    .swap-input, .swap-select {
-        flex: 1; padding: 15px; background: var(--bg-highlight); border: 1px solid var(--border);
-        color: #fff; border-radius: 8px; font-size: 18px;
+    .score-block .rating {
+        color: var(--accent-gold); /* Gold stars */
+        font-size: 16px;
+        margin-right: 15px;
+        letter-spacing: 2px;
+    }
+    .score-block .rating i.far { color: #555; } /* Outline star for empty */
+    .score-block .score-text {
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--text-main);
+        margin-right: 10px;
+    }
+    .score-block span.label {
+        color: var(--text-muted);
+        font-size: 14px;
+    }
+
+    /* 🚀 STICKY CTA FOOTER */
+    .fixed-footer-cta {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: linear-gradient(90deg, #D500F9 0%, #FF1744 100%);
+        color: #fff;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.4);
+        z-index: 200;
+        transition: transform 0.3s;
+    }
+    .fixed-footer-cta .cta-text {
+        font-size: 18px;
+        font-weight: 700;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    }
+    .fixed-footer-cta .cta-btn {
+        background: var(--accent-green);
+        color: #000;
+        padding: 10px 20px;
+        font-weight: 800;
+        text-decoration: none;
+        border-radius: 6px;
+        transition: 0.3s;
+        animation: pulse 1.5s infinite;
+    }
+    .fixed-footer-cta .cta-btn:hover {
+        background: #fff;
+        transform: scale(1.05);
+        animation: none;
+    }
+    @keyframes pulse {
+        0% { box-shadow: 0 0 0 0 rgba(0, 255, 163, 0.7); }
+        70% { box-shadow: 0 0 0 10px rgba(0, 255, 163, 0); }
+        100% { box-shadow: 0 0 0 0 rgba(0, 255, 163, 0); }
     }
     
-    .chart-tabs { display: flex; gap: 10px; margin-bottom: 15px; flex-wrap: wrap; }
-    .tab-btn {
-        padding: 10px 20px; background: var(--bg-highlight); border: 1px solid var(--border);
-        color: var(--text-muted); border-radius: 6px; cursor: pointer; font-weight: 700;
+    /* 📊 COMPARISON TABLE STYLES */
+    .comparison-table { width: 100%; border-collapse: collapse; margin-top: 20px; text-align: left; background: var(--bg-surface); border-radius: var(--radius); overflow: hidden; }
+    .comparison-table th, .comparison-table td { padding: 15px; border-bottom: 1px solid var(--border); }
+    .comparison-table th { background: var(--bg-highlight); font-weight: 700; color: var(--accent-green); text-transform: uppercase; font-size: 14px; }
+    .comparison-table tr:last-child td { border-bottom: none; }
+    .comparison-table td:nth-child(even) { background: #141414; }
+    .name-cell { font-weight: 700; }
+    .fees, .count { color: var(--accent-green); font-weight: 600; }
+    .bonus { color: var(--accent-gold); font-weight: 700; }
+    .btn-small { padding: 8px 15px; font-size: 14px; display: inline-block; width: auto; text-transform: uppercase; }
+    .btn-trust { background: var(--accent-blue); color: white; }
+    .btn-lowfee { background: var(--accent-green); color: #000; }
+    .btn-bonus { background: var(--accent-red); color: white; }
+    
+    /* 🛠 TOOL STYLES */
+    .tools-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 30px; margin-top: 30px; }
+    .chart-box, .swap-box { background: var(--bg-card); padding: 20px; border-radius: var(--radius); border: 1px solid var(--border); }
+    .swap-box h4 { margin-top: 0; border-bottom: 1px solid var(--border); padding-bottom: 10px; color: var(--accent-blue); }
+    .swap-input-group { margin-bottom: 15px; }
+    .swap-input-group label { display: block; margin-bottom: 5px; font-size: 14px; color: var(--text-muted); }
+    .swap-input-group input, .swap-input-group select { width: 100%; padding: 10px; border: 1px solid var(--border); background: var(--bg-highlight); color: var(--text-main); border-radius: 6px; box-sizing: border-box; }
+    .swap-result { margin-top: 20px; padding: 15px; background: var(--bg-highlight); border: 1px solid var(--accent-green); border-radius: 6px; text-align: center; }
+    .swap-result strong { font-size: 20px; color: var(--accent-gold); }
+    .chart-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+    .chart-header .tab-btn { background: var(--bg-highlight); color: var(--text-muted); border: none; padding: 8px 15px; border-radius: 4px; cursor: pointer; transition: 0.2s; font-weight: 600; }
+    .chart-header .tab-btn:hover, .chart-header .tab-btn.active { background: var(--accent-green); color: #000; }
+    #tradingview_widget { height: 400px; }
+
+
+    /* RTL Support for Arabic */
+    [dir="rtl"] .section-title { border-left: none; border-right: 5px solid var(--accent-green); padding-left: 0; padding-right: 20px; }
+    [dir="rtl"] .score-block { flex-direction: row-reverse; }
+    [dir="rtl"] .score-block .rating { margin-right: 0; margin-left: 15px; }
+    [dir="rtl"] .score-block .score-text { margin-right: 10px; margin-left: 0; }
+    [dir="rtl"] .fixed-footer-cta { flex-direction: row-reverse; }
+    [dir="rtl"] .comparison-table th, [dir="rtl"] .comparison-table td { text-align: right; }
+
+    @media (max-width: 900px) {
+        .tools-grid { grid-template-columns: 1fr; }
     }
-    .tab-btn.active { background: var(--accent-green); color: #000; border-color: var(--accent-green); }
-
-    .chart-frame { height: 550px; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); }
-
-    /* FOOTER */
-    footer { 
-        background: var(--bg-surface); padding: 60px 20px; text-align: center; margin-top: 100px; 
-        border-top: 1px solid var(--border); color: var(--text-muted); font-size: 14px; 
-    }
-    .socials a { color: #fff; font-size: 24px; margin: 0 15px; transition: 0.3s; }
-    .socials a:hover { color: var(--accent-green); }
-
-    /* RESPONSIVE */
     @media (max-width: 768px) {
-        header h1 { font-size: 32px; }
-        .grid-4 { grid-template-columns: 1fr; }
-        .section-title { font-size: 24px; }
+        .fixed-footer-cta { flex-direction: column; gap: 10px; padding: 15px 20px; }
+        .fixed-footer-cta .cta-text { font-size: 16px; }
+        .fixed-footer-cta .cta-btn { width: 100%; text-align: center; }
+        body { padding-bottom: 120px; } /* More space for the taller mobile footer */
+        .comparison-table { font-size: 14px; }
     }
   </style>
 </head>
 <body>
 
-<header>
-    <h1 data-key="header">Best UAE Crypto Exchanges 2025</h1>
-    <p style="color: var(--text-muted);">Compare Rates • Check Prices • Get Bonuses</p>
-    
-    <div style="margin-top: 20px;">
-        <select id="langSelect" onchange="switchLang()" style="padding: 8px; background: #333; color: #fff; border: 1px solid #555; border-radius: 4px;">
-            <option value="en">🇺🇸 English</option>
-            <option value="ar">🇦🇪 العربية</option>
-        </select>
-    </div>
-</header>
+<div class="sticky-header-wrapper">
+    <header>
+        <h1 data-key="header">Best UAE Crypto Exchanges 2025</h1>
+        <p style="color: var(--text-muted);">Compare Rates • Check Prices • Get Bonuses</p>
+        <div style="margin-top: 10px;">
+            <select id="langSelect" onchange="switchLang()" style="padding: 8px; background: #333; color: #fff; border: 1px solid #555; border-radius: 4px;">
+                <option value="en">🇺🇸 English</option>
+                <option value="ar">🇦🇪 العربية</option>
+            </select>
+        </div>
+    </header>
 
-<nav>
-    <a href="#uae" class="active" data-key="nav_uae">🇦🇪 UAE Local</a>
-    <a href="#global" data-key="nav_global">🌍 Top Global</a>
-    <a href="#pro" data-key="nav_pro">🚀 High Paying</a>
-    <a href="#tools" data-key="nav_tools">🛠 Tools</a>
-</nav>
+    <div class="ticker-container">
+        <div class="ticker-wrap">
+            <div class="ticker-item price-up"><i class="fas fa-circle"></i> BTC: $72,550 <span style="margin-left: 10px;">+2.1%</span></div>
+            <div class="ticker-item price-down"><i class="fas fa-circle"></i> ETH: $3,980 <span style="margin-left: 10px;">-0.5%</span></div>
+            <div class="ticker-item price-up"><i class="fas fa-circle"></i> SOL: $235 <span style="margin-left: 10px;">+4.2%</span></div>
+            <div class="ticker-item price-up"><i class="fas fa-circle"></i> XRP: $0.75 <span style="margin-left: 10px;">+1.1%</span></div>
+            <div class="ticker-item price-down"><i class="fas fa-circle"></i> BNB: $680 <span style="margin-left: 10px;">-1.5%</span></div>
+            <div class="ticker-item price-up"><i class="fas fa-circle"></i> ADA: $0.45 <span style="margin-left: 10px;">+1.5%</span></div>
+            <div class="ticker-item price-down"><i class="fas fa-circle"></i> DOGE: $0.15 <span style="margin-left: 10px;">-0.8%</span></div>
+            <div class="ticker-item price-up"><i class="fas fa-circle"></i> MATIC: $1.10 <span style="margin-left: 10px;">+3.0%</span></div>
+            <div class="ticker-item price-up"><i class="fas fa-circle"></i> USDC: $1.00 <span style="margin-left: 10px;">+0.0%</span></div>
+            <div class="ticker-item price-down"><i class="fas fa-circle"></i> DOT: $8.50 <span style="margin-left: 10px;">-2.5%</span></div>
+            <div class="ticker-item price-up"><i class="fas fa-circle"></i> LINK: $18.00 <span style="margin-left: 10px;">+1.8%</span></div>
+            <div class="ticker-item price-up"><i class="fas fa-circle"></i> LTC: $80.00 <span style="margin-left: 10px;">+0.5%</span></div>
+            <div class="ticker-item price-down"><i class="fas fa-circle"></i> AVAX: $45.00 <span style="margin-left: 10px;">-1.2%</span></div>
+            <div class="ticker-item price-up"><i class="fas fa-circle"></i> UNI: $10.50 <span style="margin-left: 10px;">+3.5%</span></div>
+            <div class="ticker-item price-up"><i class="fas fa-circle"></i> ICP: $15.00 <span style="margin-left: 10px;">+5.1%</span></div>
+            <div class="ticker-item price-down"><i class="fas fa-circle"></i> SHIB: $0.000030 <span style="margin-left: 10px;">-0.2%</span></div>
+            <div class="ticker-item price-up"><i class="fas fa-circle"></i> TRX: $0.12 <span style="margin-left: 10px;">+0.9%</span></div>
+            <div class="ticker-item price-down"><i class="fas fa-circle"></i> BCH: $400.00 <span style="margin-left: 10px;">-3.0%</span></div>
+            <div class="ticker-item price-up"><i class="fas fa-circle"></i> XLM: $0.10 <span style="margin-left: 10px;">+1.0%</span></div>
+            <div class="ticker-item price-up"><i class="fas fa-circle"></i> ETC: $30.00 <span style="margin-left: 10px;">+1.5%</span></div>
+            <div class="ticker-item price-down"><i class="fas fa-circle"></i> FIL: $5.50 <span style="margin-left: 10px;">-1.8%</span></div>
+            <div class="ticker-item price-up"><i class="fas fa-circle"></i> XMR: $150.00 <span style="margin-left: 10px;">+0.7%</span></div>
+            <div class="ticker-item price-down"><i class="fas fa-circle"></i> VET: $0.040 <span style="margin-left: 10px;">-0.1%</span></div>
+            <div class="ticker-item price-up"><i class="fas fa-circle"></i> NEAR: $7.00 <span style="margin-left: 10px;">+4.0%</span></div>
+            <div class="ticker-item price-up"><i class="fas fa-circle"></i> FTM: $0.80 <span style="margin-left: 10px;">+2.5%</span></div>
+            <div class="ticker-item price-down"><i class="fas fa-circle"></i> OP: $3.50 <span style="margin-left: 10px;">-1.0%</span></div>
+            <div class="ticker-item price-up"><i class="fas fa-circle"></i> ARB: $2.20 <span style="margin-left: 10px;">+1.9%</span></div>
+            <div class="ticker-item price-up"><i class="fas fa-circle"></i> HBAR: $0.10 <span style="margin-left: 10px;">+0.5%</span></div>
+            <div class="ticker-item price-up"><i class="fas fa-circle"></i> KAS: $0.15 <span style="margin-left: 10px;">+5.0%</span></div>
+            <div class="ticker-item price-down"><i class="fas fa-circle"></i> SEI: $0.60 <span style="margin-left: 10px;">-2.2%</span></div>
+            <div class="ticker-item price-up"><i class="fas fa-circle"></i> INJ: $30.00 <span style="margin-left: 10px;">+3.3%</span></div>
+            <div class="ticker-item price-down"><i class="fas fa-circle"></i> APE: $1.50 <span style="margin-left: 10px;">-1.5%</span></div>
+            <div class="ticker-item price-up"><i class="fas fa-circle"></i> MNT: $1.30 <span style="margin-left: 10px;">+0.4%</span></div>
+            <div class="ticker-item price-up"><i class="fas fa-circle"></i> RNDR: $10.00 <span style="margin-left: 10px;">+4.5%</span></div>
+            <div class="ticker-item price-down"><i class="fas fa-circle"></i> GALA: $0.050 <span style="margin-left: 10px;">-0.9%</span></div>
+            <div class="ticker-item price-up"><i class="fas fa-circle"></i> WIF: $3.00 <span style="margin-left: 10px;">+6.0%</span></div>
+            <div class="ticker-item price-up"><i class="fas fa-circle"></i> PEPE: $0.000008 <span style="margin-left: 10px;">+7.0%</span></div>
+            <div class="ticker-item price-down"><i class="fas fa-circle"></i> SUI: $1.80 <span style="margin-left: 10px;">-0.3%</span></div>
+            <div class="ticker-item price-up"><i class="fas fa-circle"></i> LDO: $2.50 <span style="margin-left: 10px;">+1.2%</span></div>
+            <div class="ticker-item price-down"><i class="fas fa-circle"></i> AAVE: $110.00 <span style="margin-left: 10px;">-2.0%</span></div>
+            <div class="ticker-item price-up"><i class="fas fa-circle"></i> IMX: $2.50 <span style="margin-left: 10px;">+3.0%</span></div>
+            <div class="ticker-item price-down"><i class="fas fa-circle"></i> STX: $2.00 <span style="margin-left: 10px;">-1.5%</span></div>
+            <div class="ticker-item price-up"><i class="fas fa-circle"></i> ZRO: $3.80 <span style="margin-left: 10px;">+0.8%</span></div>
+
+            <div class="ticker-item price-up"><i class="fas fa-circle"></i> BTC: $72,550 <span style="margin-left: 10px;">+2.1%</span></div>
+            <div class="ticker-item price-down"><i class="fas fa-circle"></i> ETH: $3,980 <span style="margin-left: 10px;">-0.5%</span></div>
+            <div class="ticker-item price-up"><i class="fas fa-circle"></i> SOL: $235 <span style="margin-left: 10px;">+4.2%</span></div>
+            <div class="ticker-item price-item price-up"><i class="fas fa-circle"></i> XRP: $0.75 <span style="margin-left: 10px;">+1.1%</span></div>
+            <div class="ticker-item price-down"><i class="fas fa-circle"></i> BNB: $680 <span style="margin-left: 10px;">-1.5%</span></div>
+            <div class="ticker-item price-up"><i class="fas fa-circle"></i> ADA: $0.45 <span style="margin-left: 10px;">+1.5%</span></div>
+            <div class="ticker-item price-down"><i class="fas fa-circle"></i> DOGE: $0.15 <span style="margin-left: 10px;">-0.8%</span></div>
+            <div class="ticker-item price-up"><i class="fas fa-circle"></i> MATIC: $1.10 <span style="margin-left: 10px;">+3.0%</span></div>
+            <div class="ticker-item price-up"><i class="fas fa-circle"></i> USDC: $1.00 <span style="margin-left: 10px;">+0.0%</span></div>
+            <div class="ticker-item price-down"><i class="fas fa-circle"></i> DOT: $8.50 <span style="margin-left: 10px;">-2.5%</span></div>
+            <div class="ticker-item price-up"><i class="fas fa-circle"></i> LINK: $18.00 <span style="margin-left: 10px;">+1.8%</span></div>
+            <div class="ticker-item price-up"><i class="fas fa-circle"></i> LTC: $80.00 <span style="margin-left: 10px;">+0.5%</span></div>
+            <div class="ticker-item price-down"><i class="fas fa-circle"></i> AVAX: $45.00 <span style="margin-left: 10px;">-1.2%</span></div>
+            <div class="ticker-item price-up"><i class="fas fa-circle"></i> UNI: $10.50 <span style="margin-left: 10px;">+3.5%</span></div>
+            <div class="ticker-item price-up"><i class="fas fa-circle"></i> ICP: $15.00 <span style="margin-left: 10px;">+5.1%</span></div>
+            <div class="ticker-item price-down"><i class="fas fa-circle"></i> SHIB: $0.000030 <span style="margin-left: 10px;">-0.2%</span></div>
+            <div class="ticker-item price-up"><i class="fas fa-circle"></i> TRX: $0.12 <span style="margin-left: 10px;">+0.9%</span></div>
+            <div class="ticker-item price-down"><i class="fas fa-circle"></i> BCH: $400.00 <span style="margin-left: 10px;">-3.0%</span></div>
+            <div class="ticker-item price-up"><i class="fas fa-circle"></i> XLM: $0.10 <span style="margin-left: 10px;">+1.0%</span></div>
+            <div class="ticker-item price-up"><i class="fas fa-circle"></i> ETC: $30.00 <span style="margin-left: 10px;">+1.5%</span></div>
+            <div class="ticker-item price-down"><i class="fas fa-circle"></i> FIL: $5.50 <span style="margin-left: 10px;">-1.8%</span></div>
+            <div class="ticker-item price-up"><i class="fas fa-circle"></i> XMR: $150.00 <span style="margin-left: 10px;">+0.7%</span></div>
+            <div class="ticker-item price-down"><i class="fas fa-circle"></i> VET: $0.040 <span style="margin-left: 10px;">-0.1%</span></div>
+            <div class="ticker-item price-up"><i class="fas fa-circle"></i> NEAR: $7.00 <span style="margin-left: 10px;">+4.0%</span></div>
+            <div class="ticker-item price-up"><i class="fas fa-circle"></i> FTM: $0.80 <span style="margin-left: 10px;">+2.5%</span></div>
+            <div class="ticker-item price-down"><i class="fas fa-circle"></i> OP: $3.50 <span style="margin-left: 10px;">-1.0%</span></div>
+            <div class="ticker-item price-up"><i class="fas fa-circle"></i> ARB: $2.20 <span style="margin-left: 10px;">+1.9%</span></div>
+            <div class="ticker-item price-up"><i class="fas fa-circle"></i> HBAR: $0.10 <span style="margin-left: 10px;">+0.5%</span></div>
+            <div class="ticker-item price-up"><i class="fas fa-circle"></i> KAS: $0.15 <span style="margin-left: 10px;">+5.0%</span></div>
+            <div class="ticker-item price-down"><i class="fas fa-circle"></i> SEI: $0.60 <span style="margin-left: 10px;">-2.2%</span></div>
+            <div class="ticker-item price-up"><i class="fas fa-circle"></i> INJ: $30.00 <span style="margin-left: 10px;">+3.3%</span></div>
+            <div class="ticker-item price-down"><i class="fas fa-circle"></i> APE: $1.50 <span style="margin-left: 10px;">-1.5%</span></div>
+            <div class="ticker-item price-up"><i class="fas fa-circle"></i> MNT: $1.30 <span style="margin-left: 10px;">+0.4%</span></div>
+            <div class="ticker-item price-up"><i class="fas fa-circle"></i> RNDR: $10.00 <span style="margin-left: 10px;">+4.5%</span></div>
+            <div class="ticker-item price-down"><i class="fas fa-circle"></i> GALA: $0.050 <span style="margin-left: 10px;">-0.9%</span></div>
+            <div class="ticker-item price-up"><i class="fas fa-circle"></i> WIF: $3.00 <span style="margin-left: 10px;">+6.0%</span></div>
+            <div class="ticker-item price-up"><i class="fas fa-circle"></i> PEPE: $0.000008 <span style="margin-left: 10px;">+7.0%</span></div>
+            <div class="ticker-item price-down"><i class="fas fa-circle"></i> SUI: $1.80 <span style="margin-left: 10px;">-0.3%</span></div>
+            <div class="ticker-item price-up"><i class="fas fa-circle"></i> LDO: $2.50 <span style="margin-left: 10px;">+1.2%</span></div>
+            <div class="ticker-item price-down"><i class="fas fa-circle"></i> AAVE: $110.00 <span style="margin-left: 10px;">-2.0%</span></div>
+            <div class="ticker-item price-up"><i class="fas fa-circle"></i> IMX: $2.50 <span style="margin-left: 10px;">+3.0%</span></div>
+            <div class="ticker-item price-down"><i class="fas fa-circle"></i> STX: $2.00 <span style="margin-left: 10px;">-1.5%</span></div>
+            <div class="ticker-item price-up"><i class="fas fa-circle"></i> ZRO: $3.80 <span style="margin-left: 10px;">+0.8%</span></div>
+        </div>
+    </div>
+
+    <nav>
+        <a href="#compare" class="active" data-key="nav_compare">⭐ Compare</a>
+        <a href="#uae" data-key="nav_uae">🇦🇪 UAE Local</a>
+        <a href="#global" data-key="nav_global">🌍 Top Global</a>
+        <a href="#pro" data-key="nav_pro">🚀 High Paying</a>
+        <a href="#tools" data-key="nav_tools">🛠 Tools</a>
+    </nav>
+</div>
+
 
 <div class="container">
 
+    <h2 id="compare" class="section-title"><i class="fas fa-table"></i> <span data-key="title_compare">Quick Comparison of Top Exchanges</span></h2>
+    <table class="comparison-table">
+        <thead>
+            <tr>
+                <th data-key="col_feature">Feature</th>
+                <th data-key="col_regulation">Regulation</th>
+                <th data-key="col_fees">Spot Fees</th>
+                <th data-key="col_coins">Coin Count</th>
+                <th data-key="col_bonus">Max Bonus</th>
+                <th data-key="col_action">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="name-cell">⭐ Rain</td>
+                <td>FSRA (ADGM)</td>
+                <td class="fees">0.2% Spread</td>
+                <td class="count">70+</td>
+                <td class="bonus">AED 100</td>
+                <td><a href="https://affiliatelink.com/rain" class="btn-small btn-trust" data-key="btn_trust">Choose for Trust →</a></td>
+            </tr>
+            <tr>
+                <td class="name-cell">👑 Binance</td>
+                <td>VARA/ADGM Licensed</td>
+                <td class="fees">0.1% (Low)</td>
+                <td class="count">350+</td>
+                <td class="bonus">20% Fee Discount</td>
+                <td><a href="https://affiliatelink.com/binance" class="btn-small btn-lowfee" data-key="btn_lowfee">Choose for Low Fee →</a></td>
+            </tr>
+            <tr>
+                <td class="name-cell">🚀 Bybit</td>
+                <td>VARA Licensed</td>
+                <td class="fees">0.1%</td>
+                <td class="count">700+</td>
+                <td class="bonus">🔥 $30,000 USDT</td>
+                <td><a href="https://affiliatelink.com/bybit" class="btn-small btn-bonus" data-key="btn_bonus">Claim Bonus →</a></td>
+            </tr>
+        </tbody>
+    </table>
+    
     <h2 id="uae" class="section-title"><i class="fas fa-shield-alt"></i> <span data-key="title_uae">UAE Regulated & Local</span></h2>
     <div class="grid-4">
         <div class="card">
             <div class="badge uae">ADGM Licensed</div>
-            <h3>Rain</h3>
-            <p data-key="desc_rain">The most trusted, fully regulated exchange in the Middle East.</p>
-            <ul class="features">
-                <li><i class="fas fa-check"></i> 0% Trading Fees (Promo)</li>
-                <li><i class="fas fa-check"></i> Instant AED Bank Deposit</li>
-            </ul>
+            <div>
+                <h3>Rain</h3>
+                <p data-key="desc_rain">The most trusted, fully regulated exchange in the Middle East.</p>
+                <div class="score-block">
+                    <span class="score-text">4.8</span>
+                    <div class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <span class="label" data-key="label_score">User Score</span>
+                </div>
+            </div>
             <a href="https://affiliatelink.com/rain" class="btn" data-key="btn_visit">Visit Site →</a>
         </div>
         <div class="card">
             <div class="badge uae">Dubai Choice</div>
-            <h3>BitOasis</h3>
-            <p data-key="desc_bitoasis">Leading MENA platform with direct AED bank links.</p>
-            <ul class="features">
-                <li><i class="fas fa-check"></i> Zero fee AED deposits</li>
-                <li><i class="fas fa-check"></i> VARA Regulated</li>
-            </ul>
+            <div>
+                <h3>BitOasis</h3>
+                <p data-key="desc_bitoasis">Leading MENA platform with direct AED bank links.</p>
+                <div class="score-block">
+                    <span class="score-text">4.5</span>
+                    <div class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    </div>
+                    <span class="label" data-key="label_score">User Score</span>
+                </div>
+            </div>
             <a href="https://affiliatelink.com/bitoasis" class="btn" data-key="btn_visit">Visit Site →</a>
         </div>
         <div class="card">
-            <div class="badge uae">Sharia Compliant</div>
-            <h3>CoinMENA</h3>
-            <p data-key="desc_coinmena">Regulated by Central Bank of Bahrain. Sharia compliant.</p>
-            <ul class="features">
-                <li><i class="fas fa-check"></i> Direct Bank Link</li>
-                <li><i class="fas fa-check"></i> Safe & Compliant</li>
-            </ul>
-            <a href="https://affiliatelink.com/coinmena" class="btn" data-key="btn_visit">Visit Site →</a>
-        </div>
-        <div class="card">
             <div class="badge top">Top Bonus</div>
-            <h3>Bitget</h3>
-            <p data-key="desc_bitget">Huge bonuses and no-KYC options for small amounts.</p>
-            <ul class="features">
-                <li><i class="fas fa-check"></i> Up to 6,200 USDT Bonus</li>
-                <li><i class="fas fa-check"></i> Copy Trading King</li>
-            </ul>
+            <div>
+                <h3>Bitget</h3>
+                <p data-key="desc_bitget">Huge bonuses and no-KYC options for small amounts.</p>
+                <div class="score-block">
+                    <span class="score-text">4.6</span>
+                    <div class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    </div>
+                    <span class="label" data-key="label_score">User Score</span>
+                </div>
+            </div>
             <a href="https://affiliatelink.com/bitget" class="btn" data-key="btn_claim">Claim Bonus →</a>
         </div>
+        <div class="card">
+            <div class="badge uae">Sharia Compliant</div>
+            <div>
+                <h3>CoinMENA</h3>
+                <p data-key="desc_coinmena">Regulated by Central Bank of Bahrain. Sharia compliant.</p>
+                <div class="score-block">
+                    <span class="score-text">4.4</span>
+                    <div class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    </div>
+                    <span class="label" data-key="label_score">User Score</span>
+                </div>
+            </div>
+            <a href="https://affiliatelink.com/coinmena" class="btn" data-key="btn_visit">Visit Site →</a>
+        </div>
     </div>
-
+    
     <h2 id="global" class="section-title"><i class="fas fa-globe"></i> <span data-key="title_global">Best Global Exchanges</span></h2>
     <div class="grid-4">
         <div class="card">
             <div class="badge top">#1 Volume</div>
-            <h3>Binance</h3>
-            <p data-key="desc_binance">World's largest crypto exchange. Best liquidity.</p>
-            <ul class="features">
-                <li><i class="fas fa-check"></i> 350+ Coins</li>
-                <li><i class="fas fa-check"></i> Best P2P Market</li>
-            </ul>
+            <div>
+                <h3>Binance</h3>
+                <p data-key="desc_binance">World's largest crypto exchange. Best liquidity.</p>
+                <div class="score-block">
+                    <span class="score-text">4.7</span>
+                    <div class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <span class="label" data-key="label_score">User Score</span>
+                </div>
+            </div>
             <a href="https://affiliatelink.com/binance" class="btn" data-key="btn_visit">Visit Site →</a>
         </div>
-        <div class="card">
+         <div class="card">
             <div class="badge pro">Derivatives</div>
-            <h3>Bybit</h3>
-            <p data-key="desc_bybit">Top choice for futures and leverage trading.</p>
-            <ul class="features">
-                <li><i class="fas fa-check"></i> $30k Sign-up Rewards</li>
-                <li><i class="fas fa-check"></i> Amazing Mobile App</li>
-            </ul>
+            <div>
+                <h3>Bybit</h3>
+                <p data-key="desc_bybit">Top choice for futures and leverage trading.</p>
+                <div class="score-block">
+                    <span class="score-text">4.6</span>
+                    <div class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    </div>
+                    <span class="label" data-key="label_score">User Score</span>
+                </div>
+            </div>
             <a href="https://affiliatelink.com/bybit" class="btn" data-key="btn_visit">Visit Site →</a>
         </div>
         <div class="card">
             <div class="badge top">Web3</div>
-            <h3>OKX</h3>
-            <p data-key="desc_okx">Advanced exchange with powerful Web3 wallet.</p>
-            <ul class="features">
-                <li><i class="fas fa-check"></i> Mystery Box Rewards</li>
-                <li><i class="fas fa-check"></i> Low Fees</li>
-            </ul>
+            <div>
+                <h3>OKX</h3>
+                <p data-key="desc_okx">Advanced exchange with powerful Web3 wallet.</p>
+                <div class="score-block">
+                    <span class="score-text">4.5</span>
+                    <div class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    </div>
+                    <span class="label" data-key="label_score">User Score</span>
+                </div>
+            </div>
             <a href="https://affiliatelink.com/okx" class="btn" data-key="btn_visit">Visit Site →</a>
         </div>
         <div class="card">
             <div class="badge top">Beginners</div>
-            <h3>eToro</h3>
-            <p data-key="desc_etoro">Social trading platform. Copy top investors.</p>
-            <ul class="features">
-                <li><i class="fas fa-check"></i> CopyTrader™</li>
-                <li><i class="fas fa-check"></i> Very Easy to Use</li>
-            </ul>
+            <div>
+                <h3>eToro</h3>
+                <p data-key="desc_etoro">Social trading platform. Copy top investors.</p>
+                <div class="score-block">
+                    <span class="score-text">4.3</span>
+                    <div class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
+                    </div>
+                    <span class="label" data-key="label_score">User Score</span>
+                </div>
+            </div>
             <a href="https://affiliatelink.com/etoro" class="btn" data-key="btn_visit">Visit Site →</a>
         </div>
     </div>
@@ -292,165 +544,256 @@
     <div class="grid-4">
         <div class="card">
             <div class="badge high">70% Comm</div>
-            <h3>PrimeXBT</h3>
-            <p data-key="desc_primexbt">Margin trading platform with huge affiliate payouts.</p>
+            <div>
+                <h3>PrimeXBT</h3>
+                <p data-key="desc_primexbt">Margin trading platform with huge affiliate payouts.</p>
+                <div class="score-block">
+                    <span class="score-text">4.0</span>
+                    <div class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    </div>
+                    <span class="label" data-key="label_score">User Score</span>
+                </div>
+            </div>
             <a href="https://affiliatelink.com/primexbt" class="btn" data-key="btn_visit">Join Now →</a>
         </div>
-        <div class="card">
+         <div class="card">
             <div class="badge high">New Gems</div>
-            <h3>MEXC</h3>
-            <p data-key="desc_mexc">Find new altcoins before they list on Binance.</p>
+            <div>
+                <h3>MEXC</h3>
+                <p data-key="desc_mexc">Find new altcoins before they list on Binance.</p>
+                <div class="score-block">
+                    <span class="score-text">4.4</span>
+                    <div class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    </div>
+                    <span class="label" data-key="label_score">User Score</span>
+                </div>
+            </div>
             <a href="https://affiliatelink.com/mexc" class="btn" data-key="btn_visit">Trade Gems →</a>
         </div>
-        <div class="card">
-            <div class="badge pro">Secure</div>
-            <h3>Kraken</h3>
-            <p data-key="desc_kraken">Industry leader in security and compliance.</p>
-            <a href="https://affiliatelink.com/kraken" class="btn" data-key="btn_visit">Visit Site →</a>
-        </div>
-        <div class="card">
-            <div class="badge top">Altcoins</div>
-            <h3>KuCoin</h3>
-            <p data-key="desc_kucoin">"People's Exchange" with massive coin variety.</p>
-            <a href="https://affiliatelink.com/kucoin" class="btn" data-key="btn_visit">Visit Site →</a>
-        </div>
-        <div class="card">
-            <div class="badge high">Startups</div>
-            <h3>Gate.io</h3>
-            <p data-key="desc_gate">Great for early stage crypto startups.</p>
-            <a href="https://affiliatelink.com/gate" class="btn" data-key="btn_visit">Visit Site →</a>
-        </div>
-        <div class="card">
-            <div class="badge top">Global</div>
-            <h3>HTX (Huobi)</h3>
-            <p data-key="desc_htx">Long-standing global exchange with deep liquidity.</p>
-            <a href="https://affiliatelink.com/htx" class="btn" data-key="btn_visit">Visit Site →</a>
-        </div>
-        <div class="card">
-            <div class="badge top">App</div>
-            <h3>Crypto.com</h3>
-            <p data-key="desc_cryptocom">Best mobile app and metal crypto Visa cards.</p>
-            <a href="https://affiliatelink.com/cryptocom" class="btn" data-key="btn_visit">Get App →</a>
-        </div>
-        <div class="card">
-            <div class="badge pro">Fast</div>
-            <h3>Phemex</h3>
-            <p data-key="desc_phemex">Zero-fee spot trading with premium membership.</p>
-            <a href="https://affiliatelink.com/phemex" class="btn" data-key="btn_visit">Visit Site →</a>
-        </div>
-         <div class="card">
-            <div class="badge pro">Pro</div>
-            <h3>Bitfinex</h3>
-            <p data-key="desc_bitfinex">Advanced trading for professional whales.</p>
-            <a href="https://affiliatelink.com/bitfinex" class="btn" data-key="btn_visit">Visit Site →</a>
-        </div>
-        <div class="card">
-            <div class="badge pro">Options</div>
-            <h3>Deribit</h3>
-            <p data-key="desc_deribit">The #1 exchange for Crypto Options trading.</p>
-            <a href="https://affiliatelink.com/deribit" class="btn" data-key="btn_visit">Visit Site →</a>
-        </div>
-    </div>
+         </div>
+
 
     <h2 id="tools" class="section-title"><i class="fas fa-tools"></i> <span data-key="title_tools">Trader Tools</span></h2>
-    
-    <div class="tool-box">
-        <h3 style="margin-top:0"><i class="fas fa-exchange-alt"></i> <span data-key="tool_swap">Quick Converter</span></h3>
-        <div class="swap-row">
-            <input type="number" id="amt1" value="1" class="swap-input" oninput="calcSwap()">
-            <select id="cur1" class="swap-select" onchange="calcSwap()">
-                <option value="BTC">BTC</option><option value="ETH">ETH</option><option value="SOL">SOL</option>
-            </select>
+    <div class="tools-grid">
+        <div class="chart-box">
+            <div class="chart-header">
+                <h4 data-key="chart_title">Live Trading Chart</h4>
+                <div>
+                    <button class="tab-btn active" onclick="loadChart('BINANCE:BTCUSDT', this)">BTC/USDT</button>
+                    <button class="tab-btn" onclick="loadChart('BINANCE:ETHUSDT', this)">ETH/USDT</button>
+                    <button class="tab-btn" onclick="loadChart('BINANCE:SOLUSDT', this)">SOL/USDT</button>
+                </div>
+            </div>
+            <div id="tradingview_widget"></div>
         </div>
-        <div style="text-align:center; font-size:24px; margin:-10px 0;">⬇️</div>
-        <div class="swap-row">
-            <input type="number" id="amt2" disabled class="swap-input">
-            <select id="cur2" class="swap-select" onchange="calcSwap()">
-                <option value="USD">USD</option><option value="AED">AED</option>
-            </select>
-        </div>
-    </div>
-
-    <div class="tool-box">
-        <h3 style="margin-top:0"><i class="fas fa-chart-line"></i> <span data-key="tool_chart">Live Market Chart</span></h3>
-        <div class="chart-tabs">
-            <button class="tab-btn active" onclick="loadChart('BINANCE:BTCUSDT', this)">BTC</button>
-            <button class="tab-btn" onclick="loadChart('BINANCE:ETHUSDT', this)">ETH</button>
-            <button class="tab-btn" onclick="loadChart('BINANCE:SOLUSDT', this)">SOL</button>
-            <button class="tab-btn" onclick="loadChart('BINANCE:XRPUSDT', this)">XRP</button>
-        </div>
-        <div class="chart-frame">
-            <div class="tradingview-widget-container" id="tv_chart"></div>
+        
+        <div class="swap-box">
+            <h4 data-key="swap_title">Quick Swap Calculator</h4>
+            <div class="swap-input-group">
+                <label for="amount" data-key="swap_label_amount">Amount of Crypto to Swap:</label>
+                <input type="number" id="amount" value="1000" oninput="calcSwap()" placeholder="e.g. 1000">
+            </div>
+            <div class="swap-input-group">
+                <label for="fromCrypto" data-key="swap_label_from">From Crypto:</label>
+                <select id="fromCrypto" onchange="calcSwap()">
+                    <option value="USDT" selected>USDT (Tether)</option>
+                    <option value="BTC">BTC (Bitcoin)</option>
+                    <option value="ETH">ETH (Ethereum)</option>
+                    <option value="SOL">SOL (Solana)</option>
+                    <option value="XRP">XRP (Ripple)</option>
+                    <option value="BNB">BNB (Binance Coin)</option>
+                    <option value="ADA">ADA (Cardano)</option>
+                    <option value="DOGE">DOGE (Dogecoin)</option>
+                    <option value="MATIC">MATIC (Polygon)</option>
+                    <option value="USDC">USDC (Stablecoin)</option>
+                    <option value="DOT">DOT (Polkadot)</option>
+                    <option value="LINK">LINK (Chainlink)</option>
+                    <option value="LTC">LTC (Litecoin)</option>
+                    <option value="AVAX">AVAX (Avalanche)</option>
+                    <option value="UNI">UNI (Uniswap)</option>
+                    <option value="ICP">ICP (Internet Computer)</option>
+                    <option value="SHIB">SHIB (Shiba Inu)</option>
+                    <option value="TRX">TRX (TRON)</option>
+                    <option value="BCH">BCH (Bitcoin Cash)</option>
+                    <option value="XLM">XLM (Stellar)</option>
+                    <option value="ETC">ETC (Ethereum Classic)</option>
+                    <option value="FIL">FIL (Filecoin)</option>
+                    <option value="XMR">XMR (Monero)</option>
+                    <option value="VET">VET (VeChain)</option>
+                    <option value="NEAR">NEAR (NEAR Protocol)</option>
+                    <option value="FTM">FTM (Fantom)</option>
+                    <option value="OP">OP (Optimism)</option>
+                    <option value="ARB">ARB (Arbitrum)</option>
+                    <option value="HBAR">HBAR (Hedera)</option>
+                    <option value="KAS">KAS (Kaspa)</option>
+                    <option value="SEI">SEI (Sei)</option>
+                    <option value="INJ">INJ (Injective)</option>
+                    <option value="APE">APE (ApeCoin)</option>
+                    <option value="MNT">MNT (Mantle)</option>
+                    <option value="RNDR">RNDR (Render)</option>
+                    <option value="GALA">GALA (Gala)</option>
+                    <option value="WIF">WIF (dogwifhat)</option>
+                    <option value="PEPE">PEPE (Pepe)</option>
+                    <option value="SUI">SUI (Sui)</option>
+                    <option value="LDO">LDO (Lido DAO)</option>
+                    <option value="AAVE">AAVE (Aave)</option>
+                    <option value="IMX">IMX (Immutable X)</option>
+                    <option value="STX">STX (Stacks)</option>
+                    <option value="ZRO">ZRO (LayerZero)</option>
+                </select>
+            </div>
+            <div class="swap-input-group">
+                <label for="toCrypto" data-key="swap_label_to">To Crypto:</label>
+                <select id="toCrypto" onchange="calcSwap()">
+                    <option value="BTC">BTC (Bitcoin)</option>
+                    <option value="ETH">ETH (Ethereum)</option>
+                    <option value="USDT" selected>USDT (Tether)</option>
+                    <option value="SOL">SOL (Solana)</option>
+                    <option value="XRP">XRP (Ripple)</option>
+                    <option value="BNB">BNB (Binance Coin)</option>
+                    <option value="ADA">ADA (Cardano)</option>
+                    <option value="DOGE">DOGE (Dogecoin)</option>
+                    <option value="MATIC">MATIC (Polygon)</option>
+                    <option value="USDC">USDC (Stablecoin)</option>
+                    <option value="DOT">DOT (Polkadot)</option>
+                    <option value="LINK">LINK (Chainlink)</option>
+                    <option value="LTC">LTC (Litecoin)</option>
+                    <option value="AVAX">AVAX (Avalanche)</option>
+                    <option value="UNI">UNI (Uniswap)</option>
+                    <option value="ICP">ICP (Internet Computer)</option>
+                    <option value="SHIB">SHIB (Shiba Inu)</option>
+                    <option value="TRX">TRX (TRON)</option>
+                    <option value="BCH">BCH (Bitcoin Cash)</option>
+                    <option value="XLM">XLM (Stellar)</option>
+                    <option value="ETC">ETC (Ethereum Classic)</option>
+                    <option value="FIL">FIL (Filecoin)</option>
+                    <option value="XMR">XMR (Monero)</option>
+                    <option value="VET">VET (VeChain)</option>
+                    <option value="NEAR">NEAR (NEAR Protocol)</option>
+                    <option value="FTM">FTM (Fantom)</option>
+                    <option value="OP">OP (Optimism)</option>
+                    <option value="ARB">ARB (Arbitrum)</option>
+                    <option value="HBAR">HBAR (Hedera)</option>
+                    <option value="KAS">KAS (Kaspa)</option>
+                    <option value="SEI">SEI (Sei)</option>
+                    <option value="INJ">INJ (Injective)</option>
+                    <option value="APE">APE (ApeCoin)</option>
+                    <option value="MNT">MNT (Mantle)</option>
+                    <option value="RNDR">RNDR (Render)</option>
+                    <option value="GALA">GALA (Gala)</option>
+                    <option value="WIF">WIF (dogwifhat)</option>
+                    <option value="PEPE">PEPE (Pepe)</option>
+                    <option value="SUI">SUI (Sui)</option>
+                    <option value="LDO">LDO (Lido DAO)</option>
+                    <option value="AAVE">AAVE (Aave)</option>
+                    <option value="IMX">IMX (Immutable X)</option>
+                    <option value="STX">STX (Stacks)</option>
+                    <option value="ZRO">ZRO (LayerZero)</option>
+                </select>
+            </div>
+            <p data-key="swap_est_fee">Estimated Fee: 0.1%</p>
+            <div class="swap-result">
+                <span data-key="swap_you_get">You Get:</span>
+                <strong id="result">1.0000 USDT</strong>
+            </div>
+            <a href="https://affiliatelink.com/bybit" class="btn btn-trust" style="margin-top: 20px;" data-key="swap_btn">Trade Now on Bybit →</a>
         </div>
     </div>
 
 </div>
 
 <footer>
-    <div class="socials" style="margin-bottom:20px">
-        <a href="#"><i class="fab fa-whatsapp"></i></a>
-        <a href="#"><i class="fab fa-telegram"></i></a>
-        <a href="#"><i class="fab fa-x-twitter"></i></a>
-    </div>
-    <p data-key="footer_disclaimer">Disclaimer: Crypto is high risk. Not financial advice.</p>
-    <p>© 2025 Crypto Affiliate UAE</p>
-</footer>
+    </footer>
+
+<div class="fixed-footer-cta">
+    <div class="cta-text" data-key="footer_text">🔥 Don't miss out! Claim the **$30,000 Exclusive Bonus** now!</div>
+    <a href="https://affiliatelink.com/bybit" class="cta-btn" data-key="footer_btn">Claim Bonus in 1 Minute →</a>
+</div>
+
 
 <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
 <script>
+// Mock USD prices for all 43 cryptocurrencies (the single source of truth)
+const MOCK_PRICES_USD = {
+    // Existing 38 (approx)
+    'BTC': 72500, 'ETH': 3980, 'SOL': 235, 'XRP': 0.75, 'BNB': 680, 'ADA': 0.45, 'DOGE': 0.15, 'MATIC': 1.10,
+    // Stablecoins
+    'USDT': 1.00, 'USDC': 1.00, 
+    // Altcoins
+    'DOT': 8.50, 'LINK': 18.00, 'LTC': 80.00, 'AVAX': 45.00, 'UNI': 10.50, 'ICP': 15.00, 'SHIB': 0.000030,
+    'TRX': 0.12, 'BCH': 400.00, 'XLM': 0.10, 'ETC': 30.00, 'FIL': 5.50, 'XMR': 150.00, 'VET': 0.040,
+    'NEAR': 7.00, 'FTM': 0.80, 'OP': 3.50, 'ARB': 2.20, 'HBAR': 0.10, 'KAS': 0.15, 'SEI': 0.60,
+    'INJ': 30.00, 'APE': 1.50, 'MNT': 1.30, 'RNDR': 10.00, 'GALA': 0.050, 'WIF': 3.00, 'PEPE': 0.000008,
+    'SUI': 1.80,
+    // NEW 5 Coins (V8)
+    'LDO': 2.50, 'AAVE': 110.00, 'IMX': 2.50, 'STX': 2.00, 'ZRO': 3.80
+};
+
 // 1. 🌍 TRANSLATIONS
 const langData = {
     en: {
+        title: "Best UAE Crypto Exchanges 2025",
         header: "Best UAE Crypto Exchanges 2025",
-        nav_uae: "🇦🇪 UAE Local", nav_global: "🌍 Top Global", nav_pro: "🚀 High Paying", nav_tools: "🛠 Tools",
-        title_uae: "UAE Regulated & Local", title_global: "Best Global Exchanges", title_pro: "Pro & High Paying", title_tools: "Trader Tools",
+        nav_compare: "⭐ Compare", nav_uae: "🇦🇪 UAE Local", nav_global: "🌍 Top Global", nav_pro: "🚀 High Paying", nav_tools: "🛠 Tools",
+        title_compare: "Quick Comparison of Top Exchanges", title_uae: "UAE Regulated & Local", title_global: "Best Global Exchanges", title_pro: "Pro & High Paying", title_tools: "Trader Tools",
+        col_feature: "Feature", col_regulation: "Regulation", col_fees: "Spot Fees", col_coins: "Coin Count", col_bonus: "Max Bonus", col_action: "Action",
+        btn_trust: "Choose for Trust →", btn_lowfee: "Choose for Low Fee →", btn_bonus: "Claim Bonus →", btn_aed: "Choose for AED →",
+        label_score: "User Score",
         desc_rain: "The most trusted, fully regulated exchange in the Middle East.",
         desc_bitoasis: "Leading MENA platform with direct AED bank links.",
-        desc_coinmena: "Regulated by Central Bank of Bahrain. Sharia compliant.",
         desc_bitget: "Huge bonuses and no-KYC options for small amounts.",
+        desc_coinmena: "Regulated by Central Bank of Bahrain. Sharia compliant.",
         desc_binance: "World's largest crypto exchange. Best liquidity.",
         desc_bybit: "Top choice for futures and leverage trading.",
         desc_okx: "Advanced exchange with powerful Web3 wallet.",
         desc_etoro: "Social trading platform. Copy top investors.",
         desc_primexbt: "Margin trading platform with huge affiliate payouts.",
         desc_mexc: "Find new altcoins before they list on Binance.",
-        desc_kraken: "Industry leader in security and compliance.",
-        desc_kucoin: "People's Exchange with massive coin variety.",
-        desc_gate: "Great for early stage crypto startups.",
-        desc_htx: "Long-standing global exchange with deep liquidity.",
-        desc_cryptocom: "Best mobile app and metal crypto Visa cards.",
-        desc_phemex: "Zero-fee spot trading with premium membership.",
-        desc_bitfinex: "Advanced trading for professional whales.",
-        desc_deribit: "The #1 exchange for Crypto Options trading.",
-        btn_visit: "Visit Site →", btn_claim: "Claim Bonus →",
-        tool_swap: "Quick Converter", tool_chart: "Live Market Chart",
-        footer_disclaimer: "Disclaimer: Crypto is high risk. Not financial advice."
+        btn_visit: "Visit Site →",
+        btn_claim: "Claim Bonus →",
+        footer_text: "🔥 Don't miss out! Claim the **$30,000 Exclusive Bonus** now!",
+        footer_btn: "Claim Bonus in 1 Minute →",
+        chart_title: "Live Trading Chart",
+        swap_title: "Quick Swap Calculator",
+        swap_label_amount: "Amount of Crypto to Swap:", 
+        swap_label_from: "From Crypto:",
+        swap_label_to: "To Crypto:",
+        swap_est_fee: "Estimated Fee: 0.1%",
+        swap_you_get: "You Get:",
+        swap_btn: "Trade Now on Bybit →",
     },
     ar: {
+        title: "أفضل منصات العملات الرقمية في الإمارات 2025",
         header: "أفضل منصات العملات الرقمية في الإمارات 2025",
-        nav_uae: "🇦🇪 محلي ومرخص", nav_global: "🌍 أفضل المنصات العالمية", nav_pro: "🚀 عمولات مرتفعة", nav_tools: "🛠 أدوات",
-        title_uae: "منصات محلية ومرخصة", title_global: "أفضل المنصات العالمية", title_pro: "للمحترفين وعمولات عالية", title_tools: "أدوات التداول",
-        desc_rain: "المنصة الأكثر ثقة وتنظيماً في الشرق الأوسط.",
-        desc_bitoasis: "المنصة الرائدة في المنطقة مع ربط بنكي مباشر بالدرهم.",
-        desc_coinmena: "مرخصة من مصرف البحرين المركزي. متوافقة مع الشريعة.",
-        desc_bitget: "مكافآت ضخمة وخيارات بدون توثيق للمبالغ الصغيرة.",
-        desc_binance: "أكبر منصة في العالم. أفضل سيولة.",
-        desc_bybit: "الخيار الأفضل للعقود الآجلة والرافعة المالية.",
+        nav_compare: "⭐ مقارنة", nav_uae: "🇦🇪 محلي ومرخص", nav_global: "🌍 أفضل المنصات العالمية", nav_pro: "🚀 عمولات مرتفعة", nav_tools: "🛠 أدوات",
+        title_compare: "مقارنة سريعة لأفضل المنصات", title_uae: "منصات محلية ومرخصة", title_global: "أفضل المنصات العالمية", title_pro: "للمحترفين وعمولات عالية", title_tools: "أدوات التداول",
+        col_feature: "الميزة", col_regulation: "الترخيص", col_fees: "رسوم التداول الفوري", col_coins: "عدد العملات", col_bonus: "أقصى مكافأة", col_action: "الإجراء",
+        btn_trust: "اختر للثقة ←", btn_lowfee: "اختر للرسوم المنخفضة ←", btn_bonus: "اطلب المكافأة ←", btn_aed: "اختر للدرهم ←",
+        label_score: "تقييم المستخدمين",
+        desc_rain: "المنصة الأكثر ثقة ومرخصة بالكامل في الشرق الأوسط.",
+        desc_bitoasis: "المنصة الرائدة في منطقة الشرق الأوسط وشمال إفريقيا مع روابط بنكية مباشرة بالدرهم الإماراتي.",
+        desc_bitget: "مكافآت ضخمة وخيارات بدون KYC للمبالغ الصغيرة.",
+        desc_coinmena: "مرخصة من قبل مصرف البحرين المركزي. متوافقة مع الشريعة.",
+        desc_binance: "أكبر بورصة للعملات المشفرة في العالم. أفضل سيولة.",
+        desc_bybit: "الخيار الأفضل للمشتقات والتداول بالرافعة المالية.",
         desc_okx: "منصة متقدمة مع محفظة Web3 قوية.",
-        desc_etoro: "منصة تداول اجتماعي. انسخ كبار المستثمرين.",
-        desc_primexbt: "منصة تداول بالهامش مع عمولات ضخمة.",
-        desc_mexc: "اعثر على عملات جديدة قبل إدراجها في بينانس.",
-        desc_kraken: "رائدة الصناعة في الأمان والامتثال.",
-        desc_kucoin: "بورصة الشعب مع تنوع هائل في العملات.",
-        desc_gate: "ممتازة للعملات الناشئة في مراحلها الأولى.",
-        desc_htx: "منصة عالمية عريقة ذات سيولة عميقة.",
-        desc_cryptocom: "أفضل تطبيق جوال وبطاقات فيزا معدنية.",
-        desc_phemex: "تداول فوري بدون رسوم مع العضوية المميزة.",
-        desc_bitfinex: "تداول متقدم للحيتان والمحترفين.",
-        desc_deribit: "المنصة رقم 1 لتداول خيارات العملات الرقمية.",
-        btn_visit: "زيارة الموقع ←", btn_claim: "احصل على المكافأة ←",
-        tool_swap: "محول سريع", tool_chart: "رسم بياني مباشر",
-        footer_disclaimer: "تنويه: العملات الرقمية عالية المخاطر. هذه ليست نصيحة مالية."
+        desc_etoro: "منصة التداول الاجتماعي. انسخ استثمارات كبار المتداولين.",
+        desc_primexbt: "منصة تداول الهامش مع دفعات عمولات ضخمة.",
+        desc_mexc: "اعثر على العملات البديلة الجديدة قبل إدراجها في بينانس.",
+        btn_visit: "زيارة الموقع ←",
+        btn_claim: "اطلب المكافأة ←",
+        footer_text: "🔥 لا تفوت الفرصة! اطلب **مكافأة 30,000$ الحصرية** الآن!",
+        footer_btn: "اطلب المكافأة في دقيقة واحدة ←",
+        chart_title: "مخطط التداول المباشر",
+        swap_title: "آلة حاسبة سريعة للتبديل",
+        swap_label_amount: "كمية العملة للتبديل:", 
+        swap_label_from: "من عملة:",
+        swap_label_to: "إلى عملة:",
+        swap_est_fee: "الرسوم التقديرية: 0.1%",
+        swap_you_get: "تحصل على:",
+        swap_btn: "تداول الآن على Bybit →",
     }
 };
 
@@ -463,36 +806,72 @@ function switchLang() {
     });
 }
 
-// 2. 🔁 SWAP CALCULATOR
+// 2. 🔁 SWAP CALCULATOR 
 function calcSwap() {
-    const prices = { BTC: 96000, ETH: 3600, SOL: 240, USD: 1, AED: 0.272 }; // Mock prices
-    const amt = document.getElementById('amt1').value;
-    const from = document.getElementById('cur1').value;
-    const to = document.getElementById('cur2').value;
+    const amount = parseFloat(document.getElementById('amount').value) || 0;
+    const from = document.getElementById('fromCrypto').value;
+    const to = document.getElementById('toCrypto').value;
+    const resultEl = document.getElementById('result');
     
-    // Formula: (Amount * FromPriceUSD) / ToPriceUSD
-    // AED Price is handled inversely because base is USD (1 AED = 0.272 USD)
-    const rateFrom = prices[from];
-    const rateTo = prices[to];
+    // Safety check for rates
+    const priceFrom = MOCK_PRICES_USD[from];
+    const priceTo = MOCK_PRICES_USD[to];
+
+    if (!priceFrom || !priceTo) {
+        resultEl.innerText = "Error: Invalid Coin Selection";
+        return;
+    }
     
-    const result = (amt * rateFrom) / rateTo;
-    document.getElementById('amt2').value = result.toFixed(2);
+    // Calculate conversion rate: Rate (A to B) = Price(A) / Price(B)
+    const rate = priceFrom / priceTo;
+    let finalAmount = amount * rate;
+
+    // Apply a mock 0.1% fee
+    finalAmount = finalAmount * 0.999; 
+
+    // Formatting logic
+    let decimals = 4;
+    if (priceTo < 0.1) decimals = 8; // Very low-priced coins (PEPE, SHIB)
+    else if (priceTo < 1) decimals = 6; // Low-priced coins (DOGE, VET)
+    else if (priceTo >= 1000) decimals = 2; // High-priced coins (BTC, ETH)
+    if (to === 'USDT' || to === 'USDC' || priceTo >= 1000) decimals = 2; // Stablecoins and high-priced
+
+    resultEl.innerText = `${finalAmount.toFixed(decimals)} ${to}`;
 }
 
-// 3. 📈 CHART
+// 3. 📈 CHART - TradingView Widget
 function loadChart(symbol, btn) {
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    document.getElementById('tv_chart').innerHTML = ""; // clear old
-    new TradingView.widget({
-        "width": "100%", "height": 550, "symbol": symbol,
-        "interval": "D", "timezone": "Asia/Dubai", "theme": "dark",
-        "style": "1", "locale": "en", "toolbar_bg": "#111",
-        "enable_publishing": false, "container_id": "tv_chart"
+    // Remove 'active' class from all buttons
+    document.querySelectorAll('.chart-header .tab-btn').forEach(b => b.classList.remove('active'));
+    // Add 'active' class to the clicked button
+    if (btn) btn.classList.add('active');
+    
+    // Clear existing chart container
+    document.getElementById('tradingview_widget').innerHTML = '';
+
+    // Create the new widget
+    new TradingView.widget(
+      {
+      "width": "100%",
+      "height": 400,
+      "symbol": symbol,
+      "interval": "1",
+      "timezone": "exchange",
+      "theme": "dark",
+      "style": "1",
+      "locale": "en",
+      "toolbar_bg": "#f1f3f6",
+      "enable_publishing": false,
+      "allow_symbol_change": true,
+      "container_id": "tradingview_widget"
     });
 }
 
-window.onload = () => { loadChart('BINANCE:BTCUSDT', document.querySelector('.tab-btn')); calcSwap(); };
+window.onload = () => { 
+    switchLang(); /* Apply default language on load */ 
+    loadChart('BINANCE:BTCUSDT', document.querySelector('.chart-header .tab-btn')); 
+    calcSwap(); 
+};
 </script>
 </body>
 </html>
